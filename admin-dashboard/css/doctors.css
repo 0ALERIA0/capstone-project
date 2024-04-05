@@ -1,0 +1,94 @@
+
+
+.head-content {
+  display: flex;
+  justify-content: right;
+  
+  
+}
+
+.filter-dropdown {
+  height: 20px;
+  margin-top: 70px;
+}
+
+
+.add-staff {
+  padding: 10px;
+  background-color: rgb(184, 59, 80);
+  border: none;
+  color: white;
+  height: 40px;
+  border-radius: 10px;
+  margin-left: 20px;
+  
+}
+
+.add-mem-text {
+  margin-left: 5px;
+}
+
+.add-staff {
+  margin-top: 50px;
+}
+
+.employee-grid {
+  display: grid;
+  grid-template-columns: 180px 180px 180px 180px 180px;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.employee-list {
+  margin-top: 10px;
+}
+
+.employee-card {
+  height: 190px;
+  background-color: rgb(36, 93, 112);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  font-family: Georgia;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  transition: 0.5s;
+}
+
+.employee-card:hover {
+  transform: scale(1.2);
+}
+
+.top-flex-card{
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-basis: auto;
+}
+
+.employee-pic {
+  height: 70px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  width: 60px;
+}
+
+.doctor-name {
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.occupation {
+  margin-bottom: 5px;
+  font-size: 13px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+
+
+
+

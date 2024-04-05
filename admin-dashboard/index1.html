@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles1.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Dashboard-copy</title>
+</head>
+
+<body>
+    <section class="header">
+        <div class="logo">
+            <i class="ri-menu-line icon icon-0 menu"></i>
+            <h2>Cast<span>ello</span></h2>
+        </div>
+        <div class="search--notification--profile">
+            <div class="search">
+                <input type="text" placeholder="Search">
+                <button><i class="ri-search-2-line"></i></button>
+            </div>
+            <div class="notification--profile">
+                <div class="picon chat">
+                    <i class="ri-wechat-2-line"></i>
+                </div>
+                <div class="picon bell">
+                    <i class="ri-notification-2-line"></i>
+                </div>
+                
+                <div class="picon profile">
+                    <img src="images/profile.jpg" alt="profile" class="admin-pic">
+                </div>
+
+                <div class="account-name">admin</div>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="sidebar">
+            <ul class="sidebar--items">
+                <li>
+                    <a href="index.html" id="active--link">
+                        <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
+                        <span class="sidebar--item">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="schedule.html">
+                        <span class="icon icon-2"><i class="ri-calendar-2-line"></i></span>
+                        <span class="sidebar--item">Schedule</span>
+                    </a>
+                
+                </li>
+                <li>
+                    <a href="doctors.html">
+                        <span class="icon icon-3"><i class="ri-user-2-line"></i></span>
+                        <span class="sidebar--item" style="white-space: nowrap;">Organization</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="patient.html">
+                        <span class="icon icon-4"><i class="ri-user-line"></i></span>
+                        <span class="sidebar--item">Patients</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icon-9"><i class="ri-hotel-bed-fill"></i></span>
+                        <span class="sidebar--item">Rooms</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon icon-10"><i class="ri-medicine-bottle-fill"></i></span>
+                        <span class="sidebar--item">Pharmacy</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icon-11"><i class="ri-file-list-2-fill"></i></span>
+                        <span class="sidebar--item">Inventory</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icon-5"><i class="ri-line-chart-line"></i></span>
+                        <span class="sidebar--item">Activity</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icon-6"><i class="ri-customer-service-line"></i></span>
+                        <span class="sidebar--item">Support</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="sidebar--bottom-items">
+                <li>
+                    <a href="#">
+                        <span class="icon icon-7"><i class="ri-settings-3-line"></i></span>
+                        <span class="sidebar--item">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
+                        <span class="sidebar--item">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main--content">
+            <div class="overview">
+                <div class="title">
+                    <h3 class="section--title">Overview</h3>
+                    
+                </div>
+                <div class="cards js-cards">
+
+                </div>
+            </div>
+            <div class="doctors">
+                <div class="title">
+                    <h3 class="section--title">Doctors</h3>
+                    <div class="doctors--right--btns">
+                        <select name="date" id="date" class="dropdown doctor--filter">
+                            <option value="all">All</option>
+                            <option value="onduty">On Duty</option>
+                            <option value="dayoff">Day Off</option>
+                        </select>
+                        <button class="add"><i class="ri-add-line"></i>Add Doctor</button>
+                    </div>
+                </div>
+                <div class="doctors--cards items"></div>
+            </div>
+            <div class="recent--patients">
+                <div class="title">
+                    <h3 class="section--title">Recent Patients</h3>
+                    
+                </div>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date in</th>
+                                <th>Gender</th>
+                                <th>Age</th>
+                                <th>Status</th>
+                                <th>Settings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jon Snow</td>
+                                <td>30/07/2024</td>
+                                <td>Male</td>
+                                <td>61kg</td>
+                                <td class="pending">pending</td>
+                                <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td>Michael Scofield</td>
+                                <td>30/07/2024</td>
+                                <td>Male</td>
+                                <td>54kg</td>
+                                <td class="confirmed">Confirmed</td>
+                                <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td>Sam Winchester</td>
+                                <td>29/07/2024</td>
+                                <td>Male</td>
+                                <td>56kg</td>
+                                <td class="confirmed">Confirmed</td>
+                                <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td>Stiles Stilinski</td>
+                                <td>29/07/2024</td>
+                                <td>Male</td>
+                                <td>80kg</td>
+                                <td class="rejected">Rejected</td>
+                                <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td>Arya Stark</td>
+                                <td>29/07/2024</td>
+                                <td>Female</td>
+                                <td>50kg</td>
+                                <td class="confirmed">Confirmed</td>
+                                <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td>Bruce Wayne</td>
+                                <td>28/07/2024</td>
+                                <td>Male</td>
+                                <td>88kg</td>
+                                <td class="confirmed">Confirmed</td>
+                                <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td>Denaerys Stormborn</td>
+                                <td>28/07/2024</td>
+                                <td>Female</td>
+                                <td>58kg</td>
+                                <td class="pending">Pending</td>
+                                <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/index.js" type="module"></script>
+</body>
+
+</html>
