@@ -21,7 +21,7 @@ export const doctors = [{
 }, {
     name: 'Dr. Tom Cruise',
     position: 'Optalmologist',
-    status: 'offduty',
+    status: 'dayoff',
     image: '5'
 },{
     name: 'Dr. Emma Watson',
@@ -33,4 +33,10 @@ export const doctors = [{
     position: 'Cardiologist',
     status: 'onduty',
     image: '7'
+}, {
+    name: 'Dr. Heinrich Treadway',
+    position: 'Psychiatrist',
+    status: 'dayoff',
+    image: '8'
 }];
+

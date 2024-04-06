@@ -1,8 +1,10 @@
+import { doctors } from "./doctors-data.js";
+
 export const dataOverview = [
     {
     typeOfCard: 'card-1',
     title: 'Total Doctors',
-    count: 22,
+    count: doctors.length,
     icon: 'ri-user-2-line card--icon--lg',
     }, {
     typeOfCard: 'card-2',

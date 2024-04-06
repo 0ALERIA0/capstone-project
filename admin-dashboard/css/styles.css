@@ -295,12 +295,13 @@ a {
 .cards {
     display: flex;
     gap: 20px;
+    padding-bottom: 20px;
 }
 
 .card {
     padding: 20px;
     border-radius: 20px;
-    min-width: 300px;
+    min-width: 280px;
     height: auto;
     transition: .3s;
 }
@@ -373,7 +374,7 @@ a {
 }
 
 .card-2 .card--icon--lg {
-    color: rgba(241, 210, 67, .4);
+    color: rgba(138, 116, 20, 0.4);
 }
 
 .card-3 {
@@ -399,6 +400,19 @@ a {
 .card-4 .card--icon--lg {
     color: rgba(227, 106, 200, .4);
 }
+
+.card-5 {
+    background-color: rgba(122, 92, 228, 0.5);
+}
+
+.card-5 .card--title {
+    color: black;
+}
+
+.card-5 .card--icon--lg {
+    color: rgba(253, 253, 253, 0.4);
+}
+
 
 
 /* doctors */
@@ -452,6 +466,8 @@ a {
     align-items: center;
     font-size: .8rem;
     background-color: rgb(204, 194, 194);
+    text-align: center;
+
 }
 
 .doctor--card:hover {
@@ -474,11 +490,11 @@ a {
     border-radius: 50%;
 }
 
-.free {
+.onduty {
     color: green;
 }
 
-.scheduled {
+.offduty {
     color: rgb(117, 48, 61);
 }
 
@@ -490,14 +506,22 @@ a {
 }
 
 .table {
-    height: 200px;
+    height: 300px;
     overflow-y: scroll;
+    border-right: #000;
+    border-style: solid;
+    border-width: 1px;
+    width: 50%;
+    background-color: white;
+    padding: 10px;
+
 }
 
 table {
     width: 100%;
     text-align: left;
     border-collapse: collapse;
+    
 }
 
 tr {
@@ -512,24 +536,26 @@ th {
 .edit {
     color: #70d7a5;
     margin-right: 10px;
+    font-size: 20px;
 }
 
 .delete {
     color: red;
+    font-size: 20px;
 }
 
-.pending {
-    color: #f1d243;
+.edit,
+.delete {
+    cursor: pointer;
+    padding: 5px;
+    transition: 0.5s;
 }
 
-.confirmed {
-    color: #70d7a5;
-}
+.edit:hover,
+.delete:hover {
+    transform: rotate(10deg);
 
-.rejected {
-    color: #e86786;
 }
-
 
 /* responsive starts here */
 

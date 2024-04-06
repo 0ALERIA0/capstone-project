@@ -1,9 +1,10 @@
   import { dataOverview } from "./data/overview-data.js";
   import { doctors } from "./data/doctors-data.js";
+  import { scheduledPatients } from "./data/patients-data.js";
+
+/* script for Overview section */
 
   let OverviewContentHTML = '';
-
- 
 
   dataOverview.forEach((data) => {
     OverviewContentHTML += `
@@ -23,9 +24,9 @@
   });
 
   document.querySelector('.js-cards').innerHTML = OverviewContentHTML;
-  
-  
-  console.log(OverviewContentHTML);
+
+  /* script for doctors section */
+
 
 document.getElementById('date').addEventListener('change' , function() {
   const filter = this.value;
@@ -56,3 +57,22 @@ doctors.forEach((doctor) => {
 });
 
 document.querySelector('.doctors--cards').innerHTML = doctorData;
+
+/* script for scheduled patients */
+
+let patientsData = '';
+
+scheduledPatients.forEach((patient) => {
+  patientsData += `
+  <tr>
+  <td>${patient.name}</td>
+  <td>${patient.date}</td>
+  <td>${patient.gender}</td>
+  <td>${patient.age}</td>
+  <td><span><button class="ri-edit-line edit edit"><button><button class="ri-delete-bin-line delete js-delete-schedule" onclick ="scheduledPatients.splice(${i}, 1)"><button></span></td>
+</tr>
+  `
+});
+
+document.querySelector('.js-tables-scheduled-patients').innerHTML = patientsData;
+

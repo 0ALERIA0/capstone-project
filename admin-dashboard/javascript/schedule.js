@@ -28,7 +28,8 @@ function addEvent() {
 
 		events.push(
 			{
-				id: eventId, date: date,
+				id: eventId,
+				date: date,
 				title: title,
 				description: description
 			}
