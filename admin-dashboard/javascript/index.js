@@ -60,6 +60,7 @@ document.querySelector('.doctors--cards').innerHTML = doctorData;
 
 /* script for scheduled patients */
 
+function renderScheduleList() {
 let patientsData = '';
 
 scheduledPatients.forEach((patient) => {
@@ -77,3 +78,16 @@ scheduledPatients.forEach((patient) => {
 document.querySelector('.js-tables-scheduled-patients').innerHTML = patientsData;
 
 document.querySelectorAll('.js-delete-schedule')
+  .forEach((deleteList, index) => {
+    deleteList.addEventListener('click', () => {
+      scheduledPatients.splice(index, 1)
+      renderScheduleList();
+    })
+  });
+}
+
+renderScheduleList();
+
+
+
+
