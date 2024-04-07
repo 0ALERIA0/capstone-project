@@ -69,10 +69,11 @@ scheduledPatients.forEach((patient) => {
   <td>${patient.date}</td>
   <td>${patient.gender}</td>
   <td>${patient.age}</td>
-  <td><span><button class="ri-edit-line edit edit"><button><button class="ri-delete-bin-line delete js-delete-schedule" onclick ="scheduledPatients.splice(${i}, 1)"><button></span></td>
+  <td><span><button class="ri-edit-line edit edit"><button><button class="ri-delete-bin-line delete js-delete-schedule"><button></span></td>
 </tr>
   `
 });
 
 document.querySelector('.js-tables-scheduled-patients').innerHTML = patientsData;
 
+document.querySelectorAll('.js-delete-schedule')
