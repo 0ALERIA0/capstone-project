@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles1.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title>Dashboard-copy</title>
 </head>
 
@@ -135,11 +137,23 @@
                 </div>
                 <div class="doctors--cards items"></div>
             </div>
-            <div class="recent--patients">
-                <div class="title">
-                    <h3 class="section--title">Scheduled Patients</h3>            
+            <div class="lowerpart-div">
+
+                <div class="graphs-div">
+                    <div class="patient-graph">
+                        <p class="patient-activites-word">Patient Activities</p>
+                        <canvas id="myChart">
+                        </canvas>
+                    </div>
+                    <div class="patient-donutchart">
+                        <canvas id="myDonutChart"></canvas>
+                    </div>
                 </div>
+               
                 <div class="table">
+                    <div class="title">
+                        <h3 class="section--title">Scheduled Patients</h3>            
+                    </div>
                     <table>
                         <thead>
                             <tr>
@@ -155,7 +169,9 @@
                         </tbody>
                     </table>
                 </div>
+                
             </div>
+            
         </div>
     </section>
     <script src="javascript/main.js"></script>

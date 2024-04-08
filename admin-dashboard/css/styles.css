@@ -301,7 +301,7 @@ a {
 .card {
     padding: 20px;
     border-radius: 20px;
-    min-width: 280px;
+    min-width: 220px;
     height: auto;
     transition: .3s;
 }
@@ -499,63 +499,7 @@ a {
 }
 
 
-/* recent--patients */
 
-.recent--patients {
-    margin-bottom: 20px;
-}
-
-.table {
-    height: 300px;
-    overflow-y: scroll;
-    border-right: #000;
-    border-style: solid;
-    border-width: 1px;
-    width: 50%;
-    background-color: white;
-    padding: 10px;
-
-}
-
-table {
-    width: 100%;
-    text-align: left;
-    border-collapse: collapse;
-    
-}
-
-tr {
-    border-bottom: 1px solid #f1f1f1;
-}
-
-td,
-th {
-    padding-block: 10px;
-}
-
-.edit {
-    color: #70d7a5;
-    margin-right: 10px;
-    font-size: 20px;
-}
-
-.delete {
-    color: red;
-    font-size: 20px;
-}
-
-.edit,
-.delete {
-    cursor: pointer;
-    padding: 5px;
-    transition: 0.5s;
-}
-
-.edit:hover,
-.delete:hover {
-    transform: rotate(10deg);
-
-}
 
 /* responsive starts here */
 

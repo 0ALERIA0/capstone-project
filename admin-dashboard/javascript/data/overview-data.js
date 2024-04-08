@@ -1,4 +1,5 @@
 import { doctors } from "./doctors-data.js";
+import { scheduledPatients } from "./patients-data.js";
 
 export const dataOverview = [
     {
@@ -21,7 +22,7 @@ export const dataOverview = [
     {
     typeOfCard: 'card-4',
     title: 'Scheduled',
-    count: 50,
+    count: scheduledPatients.length,
     icon: 'ri-calendar-2-line card--icon--lg'
     },{
     typeOfCard: 'card-5',
