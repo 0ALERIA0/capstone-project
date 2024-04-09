@@ -1,0 +1,166 @@
+.top-wrapper {
+  display: flex;
+  column-gap: 20px;
+}
+
+.wrapper {
+    flex: 730px;
+    margin-top: 20px;
+    background-color: white;
+    padding-top: 10px;
+    border-radius: 10px;
+  }
+  
+  /* Buttons in the calendar */
+  .button-container-calendar button {
+    cursor: pointer;
+    background: green;
+    color: #fff;
+    border: 1px solid green;
+    border-radius: 4px;
+    padding: 5px 10px;
+  }
+  
+  /* Calendar table */
+  .table-calendar {
+    border-collapse: collapse;
+    width: 100%;
+    border-bottom: 1px solid #dadada;
+  }
+  
+  .table-calendar td,
+  .table-calendar th {
+    padding: 5px;
+    border: 1px solid #e2e2e2;
+    text-align: center;
+    vertical-align: top;
+  }
+  
+  /* Date picker */
+  .date-picker.selected {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    outline: 1px dashed #00BCD4;
+  }
+  
+  .date-picker.selected span {
+    border-bottom: 2px solid currentColor;
+  }
+  
+  /* Day-specific styling */
+  .date-picker:nth-child(1) {
+    color: red;
+    /* Sunday */
+  }
+  
+  .date-picker:nth-child(6) {
+    color: green;
+    /* Friday */
+  }
+  
+  /* Hover effect for date cells */
+  .date-picker:hover {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Header for month and year */
+  #monthAndYear {
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  /* Navigation buttons */
+  .button-container-calendar {
+    position: relative;
+    margin-bottom: 1em;
+    overflow: hidden;
+    clear: both;
+  }
+  
+  #previous {
+    float: left;
+    width: 50px;
+    margin-left: 20px;
+  }
+  
+  #next {
+    float: right;
+    width: 50px;
+    margin-right: 20px;
+  }
+
+  #previous:hover,
+  #next:hover {
+    transform: scale(1.2);
+  }
+
+  /* Footer styling */
+  .footer-container-calendar {
+    margin-top: 1em;
+    
+    padding: 10px 0;
+    margin-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .footer-container-calendar select {
+    cursor: pointer;
+    background: #ffffff;
+    color: #585858;
+    border: 1px solid #bfc5c5;
+    border-radius: 3px;
+    padding: 5px 1em;
+  }
+
+  .calendar-title {
+    text-align: center;
+    color: green;
+    margin-bottom: 5px;
+  }
+
+  #monthAndYear {
+    color: rgb(85, 175, 85);
+  }
+
+  .scheduled-list {
+    flex: 300px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+  .schedule-title {
+    text-align: center;
+    font-style: italic;
+    color: green;
+    border-bottom: 1px solid black;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  .schedule-cards {
+    display: flex;
+    justify-self:center;
+    align-items: center;
+    background-color: rgb(85, 175, 85);
+    padding: 2px;
+    border-radius: 40px;
+  }
+
+  .schedule-bullet{
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .schedule-status {
+    margin-left: 35px;
+  }
+
+  #schedule-picture {
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+  }
