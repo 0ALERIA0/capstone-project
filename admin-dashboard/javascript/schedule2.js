@@ -1,3 +1,11 @@
+// taking inputs
+let events = [];
+
+let eventNameInput = document.getElementById("name-input");
+let eventStatusInput = document.getElementById("status-input");
+let eventDescriptionInput = document.getElementById("description-input");
+let eventDateInput = document.getElementById("date-input");
+
 
 // Function to generate a range of 
 // years for the year select input
@@ -71,12 +79,7 @@ function previous() {
 		11 : currentMonth - 1;
 	showCalendar(currentMonth, currentYear);
 }
-// Function to jump to a specific month and year
-function jump() {
-	currentYear = parseInt(selectYear.value);
-	currentMonth = parseInt(selectMonth.value);
-	showCalendar(currentMonth, currentYear);
-}
+
 // Function to display the calendar
 function showCalendar(month, year) {
 	let firstDay = new Date(year, month, 1).getDay();
@@ -113,8 +116,6 @@ function showCalendar(month, year) {
 				) {
 					cell.className = "date-picker selected";
 				}
-
-
 				row.appendChild(cell);
 				date++;
 			}
@@ -122,7 +123,12 @@ function showCalendar(month, year) {
 		tbl.appendChild(row);
 	}
 }
-
+// Function to jump to a specific month and year
+function jump() {
+	currentYear = parseInt(selectYear.value);
+	currentMonth = parseInt(selectMonth.value);
+	showCalendar(currentMonth, currentYear);
+}
 // Function to get the number of days in a month
 function daysInMonth(iMonth, iYear) {
 	return 32 - new Date(iYear, iMonth, 32).getDate();
@@ -130,4 +136,56 @@ function daysInMonth(iMonth, iYear) {
 
 // Call the showCalendar function initially to display the calendar
 showCalendar(currentMonth, currentYear);
+
+// counter to generate event IDs
+let eventIdCounter = 1;
+
+// function to add events
+function addEvent() {
+	let name = eventNameInput.value;
+	let status = eventStatusInput.value;
+	let description = eventDescriptionInput.value;
+	let date = eventDateInput.value;
+
+	if (name && status && description && date) {
+		//create a id event
+		let eventId = eventIdCounter;
+
+		events.push(
+			{
+				id: eventId,
+				name: name,
+				status: status,
+				description: description,
+				date: date
+			}
+		);
+		showCalendar(currentMonth, currentYear);
+		eventNameInput.value = "";
+		eventDescriptionInput.value = "";
+		eventDateInput.value = "";
+		displaySchedule();
+	}
+}
+
+function hasEventOnDate(date, month, year) {
+	return getEventsOnDate(date, month, year).length > 0;
+}
+
+// function to display schedule
+function displaySchedule() {
+	scheduleListHTML = "";
+
+	events.forEach((data) => {
+		scheduleListHTML += `
+		<div class="schedule-cards">
+			<img src="images/nurse1.jpg" id="schedule-picture">
+			<p class="schedule-bullet">${data.name}</p>
+			<p class="schedule-date">${data.date}</p>
+		</div>
+		`;
+	})
+
+	document.querySelector('.schedule-cards-wrapper').innerHTML = scheduleListHTML;
+};
 

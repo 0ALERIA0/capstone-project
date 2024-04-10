@@ -22,7 +22,7 @@ function addEvent() {
 	let title = eventTitleInput.value;
 	let description = eventDescriptionInput.value;
 
-	if (date && title) {
+	if (date && title && description) {
 		// Create a unique event ID
 		let eventId = eventIdCounter++;
 
@@ -55,6 +55,7 @@ function deleteEvent(eventId) {
 		showCalendar(currentMonth, currentYear);
 		displayReminders();
 	}
+	
 }
 
 // Function to display reminders
