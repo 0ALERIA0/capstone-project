@@ -188,4 +188,3 @@ function displaySchedule() {
 
 	document.querySelector('.schedule-cards-wrapper').innerHTML = scheduleListHTML;
 };
-

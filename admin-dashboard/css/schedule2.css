@@ -116,12 +116,12 @@
 
   .calendar-title {
     text-align: center;
-    color: green;
+    color: rgb(55, 155, 189);
     margin-bottom: 5px;
   }
 
   #monthAndYear {
-    color: rgb(85, 175, 85);
+    color: rgb(55, 155, 189);
   }
 
   .scheduled-list {
@@ -135,7 +135,7 @@
   .schedule-title {
     text-align: center;
     font-style: italic;
-    color: green;
+    color: rgb(55, 155, 189);
     border-bottom: 1px solid black;
     padding: 5px;
     margin-bottom: 10px;
@@ -145,9 +145,8 @@
     display: flex;
     justify-self:center;
     align-items: center;
-    background-color: rgb(85, 175, 85);
+    border-bottom: 1px solid black;
     padding: 2px;
-    border-radius: 40px;
     justify-content: space-between;
   }
 
@@ -164,4 +163,77 @@
     height: 30px;
     width: 30px;
     border-radius: 15px;
+  }
+
+
+  /*bottom wrapper*/
+  .bottom-wrapper {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  /*css for input form*/
+  .input-form {
+    width: 500px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .list-title-header {
+    height: 40px;
+  }
+
+#list-title {
+  text-align: center;
+  color: rgb(55, 155, 189);
+}
+
+  #name-input {
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid rgb(194, 194, 240);
+    padding: 3px;
+    width: 250px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    display: block;
+  }
+
+  #status-input {
+    float: right;
+    height: 25px;
+    border: 1px solid rgb(194, 194, 240);
+  }
+
+  #date-input {
+    height: 30px;
+    width: 250px;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(194, 194, 240);
+  }
+
+  #description-input {
+    height: 30px;
+    width: 250px;
+    border-radius: 10px;
+    border: 1px solid rgb(194, 194, 240);
+    padding: 3px;
+  }
+
+  .add-event-button {
+    float: right;
+    width: 80px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(118, 218, 118);
+  }
+
+  .add-event-button:hover {
+    background-color: rgb(34, 153, 34);
+    box-shadow: 2px 2px #888888;
   }

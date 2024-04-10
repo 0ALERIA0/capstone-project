@@ -123,7 +123,7 @@
         <div class="calendar-container">
             
                 <div id="right">
-                    <h3 class="calendar-title">Castelo Schedule Organizer</h3>
+                    <h3 class="calendar-title">Employee Schedule</h3>
                     <h3 id="monthAndYear"></h3>
                     <div class="button-container-calendar">
                         <button id="previous"
@@ -177,15 +177,23 @@
     </div>
     <div class="bottom-wrapper">
         <div class="input-form">
+            <div class="list-title-header">
+            <h4 id="list-title">Add Schedule</h4>
+            </div>
+            <label for="name">Name:</label>
             <input type="text" id="name-input" placeholder="Name">
             <select id="status-input">
-                <option value="default">Choose status</option>
+                <option value="default">Select Label</option>
                 <option value="dayoff">Day off</option>
                 <option value="leave">Leave</option>
             </select>
-            <input type="text" id="description-input" placeholder="Description">
+            <label for="date">Date:</label>
             <input type="date" id="date-input">
+            <input type="text" id="description-input" placeholder="Description">
             <button class="add-event-button" onclick="addEvent()">Add Event</button>
+        </div>
+        <div class="schedule-counter-wrapper">
+            
         </div>
     </div>
 </section>
