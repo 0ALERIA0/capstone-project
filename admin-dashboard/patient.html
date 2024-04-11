@@ -114,89 +114,52 @@
             </ul>
         </div>
         <div class="main--content">
-  
-          <h2 class="list-title">Current Patients</h2>
-          <div class="patients-grid">
-            <div class="add-patient-div">
+            <h2 class="list-title">Patient Records</h2>
+            <button class="add-record">Add Records</button>
+            <div class="modal-wrapper">
+                <div class="modal-content">
+                    <h2>Patient Registration Form</h2>
+                    <label for="name">Patients Name:</label>
+                    <input type="text" id="firts-name" placeholder="first name">
+                    <input type="text" id="last-name" placeholder="last name">
+                    <input type="text" id="middle-name" placeholder="middle name"><br>
 
-              
-                <div id="patient-form" class="modal">
-                  
-                  <form class="modal-content animate">
-                    <div class="imgcontainer">
-                      <span onclick="document.getElementById('patient-form').style.display='none'" 		class="close">&times;</span>
-                      
-                    </div>
+                    <label for="Gender">Gender:</label>
+                    <input type="checkbox" id="Gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="checkbox" id="Gender" value="female">
+                    <label for="female">Female</label><br>
 
-                    <div class="container">
+                    <label for="number">Phone Number:</label>
+                    <input type="number" id="input-number" placeholder="Phone Number"><br>
 
-                      <p class="form-title">Patient form</p>
-                    
-                    <label>Name:</label>
-                    <input placeholder="name" class="js-name-input">
-                    <label>Contact#:</label>
-                    <input  class="js-date-input">
-                    <label>Address:</label>
-                    <input placeholder="address" class="js-address-input">
-                    <label>Birthday</label>
-                    <input type="date">
-                    <p>Room number</p>
-                    <input placeholder="room#" class="js-room-input">
-                      
-                        
-                      
-                      
-                    </div>
+                    <label for="date">Date of Birthday:</label>
+                    <input type="date" id="input-birthday"><br>
 
-                    <div class="container" style="background-color:#f1f1f1">
-                      <button type="button" onclick="document.getElementById('patient-form').style.display='none'" class="cancelbtn">Cancel</button>
+                    <label for="marital">Marital Status:</label>
+                    <input type="checkbox" name="single" id="marital-single">
+                    <label for="single">Single</label>
+                    <input type="checkbox" name="married" id="marital-married">
+                    <label for="married">Married</label>
+                    <input type="checkbox" name="divorced" id="marital-divorced">
+                    <label for="divorced">Divorced</label>
+                    <input type="checkbox" name="widow" id="marital-widow">
+                    <label for="widow">Widow</label><br>
 
-                      <button type="button" onclick="addPatient();" class="confirm-button">Confirm</button>
-                      
-                    </div>
-                  </form>
+                    <label for="address">Patient Address:</label>
+                    <input type="text" id="street-add" placeholder="Street Address">
+                    <input type="text" id="municipality" placeholder="Municipality"><br>
+                    <input type="text" id="city" placeholder="City">
+                    <input type="number" id="zip-code" placeholder="Zip Code">
+                    <input type="text" id="country" placeholder="Country">
+
+
                 </div>
-
-                    
-                    
-                    
-                    
-
-                    <button class="add-button" onclick=" 
-                    
-                    document.getElementById('patient-form').style.display='block'" style="width:auto;"
-                    >Add patient</button>
-
-                    
-                    <div class="title">
-                      <div>Name</div>
-                      <div>Contact#</div>
-                      <div>Address</div>
-                      <div>Room</div>
-                    </div>
-
-                    <div class="js-patient-list"> 
-                      
-                      
-                    </div>
-
-
+            </div>
+            <div class="content-wrapper">
 
             </div>
-
-
-
-                      
-
-
-              </div>
-
-            </div>
-
-                      
-          
-
-        </div>
+        </div>  
     </section>
     <script src="javascript/main.js"></script>
     <script src="javascript/patient.js"></script>
