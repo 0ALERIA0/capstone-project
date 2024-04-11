@@ -125,11 +125,13 @@
   }
 
   .scheduled-list {
+    max-height: 350px;
     flex: 300px;
     background-color: white;
     margin-top: 20px;
     border-radius: 10px;
     padding: 5px;
+    overflow: scroll;
   }
 
   .schedule-title {
@@ -170,6 +172,7 @@
   .bottom-wrapper {
     display: flex;
     margin-top: 20px;
+    column-gap: 20px;
   }
 
   /*css for input form*/
@@ -237,3 +240,76 @@
     background-color: rgb(34, 153, 34);
     box-shadow: 2px 2px #888888;
   }
+
+  /*styles for schedule counter*/
+
+  .schedule-counter-wrapper {
+    display: flex;
+    background-color: white;
+    width: 300px;
+    padding: 15px;
+    border-radius: 20px;
+    margin-left: 30px;
+  }
+
+  .dayoff-div,
+  .leave-div,
+  .other-div {
+    flex: 1;
+    border: 1px solid gray;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-right: 5px;
+  }
+
+  .schedule-counter {
+    color: #585858;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .schedule-counter-wrapper p {
+    font-size: 60px;
+    color: lightcoral;
+  }
+
+
+
+
+
+
+.event-tooltip {
+    position: absolute;
+    background-color: rgba(234, 232, 232, 0.763);
+    color: black;
+    padding: 10px;
+    border-radius: 4px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+.event-marker:hover .event-tooltip {
+    display: block;
+  }
+
+.event-marker {
+  position: relative;
+}
+
+.event-marker::after {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

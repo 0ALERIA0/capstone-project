@@ -183,7 +183,7 @@
             <label for="name">Name:</label>
             <input type="text" id="name-input" placeholder="Name">
             <select id="status-input">
-                <option value="default">Select Label</option>
+                <option value="other">Other</option>
                 <option value="dayoff">Day off</option>
                 <option value="leave">Leave</option>
             </select>
@@ -193,8 +193,19 @@
             <button class="add-event-button" onclick="addEvent()">Add Event</button>
         </div>
         <div class="schedule-counter-wrapper">
-            
-        </div>
+            <div class="dayoff-div">
+                <h4 class="schedule-counter">Day Off</h4>
+                <p>0</p>
+            </div>
+            <div class="leave-div">
+                <h4 class="schedule-counter">Leave</h4>
+                <p>0</p>
+            </div>
+            <div class="other-div">
+                <h4 class="schedule-counter">Other</h4>
+                <p>0</p>
+            </div>
+        
     </div>
 </section>
           

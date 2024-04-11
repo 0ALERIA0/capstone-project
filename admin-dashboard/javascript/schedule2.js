@@ -116,6 +116,15 @@ function showCalendar(month, year) {
 				) {
 					cell.className = "date-picker selected";
 				}
+
+				// Check if there are events on this date
+				if (hasEventOnDate(date, month, year)) {
+					cell.classList.add("event-marker");
+					cell.appendChild(
+						createEventTooltip(date, month, year)
+				);
+				}
+
 				row.appendChild(cell);
 				date++;
 			}
@@ -139,6 +148,9 @@ showCalendar(currentMonth, currentYear);
 
 // counter to generate event IDs
 let eventIdCounter = 1;
+let dayoff = [];
+let leave = [];
+let other =[];
 
 // function to add events
 function addEvent() {
@@ -160,12 +172,32 @@ function addEvent() {
 				date: date
 			}
 		);
+
+		if(name && status && description && date) {
+			if (status === 'dayoff') {
+				dayoff.push({
+					status: status
+			})
+			} else if (status === 'leave') {
+				leave.push({
+					status: status
+				})
+			} else if (status === 'other') {
+				other.push({
+					status: status
+				})
+			}
+		}
+
 		showCalendar(currentMonth, currentYear);
 		eventNameInput.value = "";
 		eventDescriptionInput.value = "";
 		eventDateInput.value = "";
 		displaySchedule();
+		updateScheduleCOunter();
 	}
+
+	location.reload;
 }
 
 function hasEventOnDate(date, month, year) {
@@ -185,6 +217,61 @@ function displaySchedule() {
 		</div>
 		`;
 	})
-
 	document.querySelector('.schedule-cards-wrapper').innerHTML = scheduleListHTML;
 };
+
+// function for scheduleCounter
+function updateScheduleCOunter() {
+
+let scheduleCounterHTML = `
+<div class="dayoff-div">
+                <h4 class="schedule-counter">Day Off</h4>
+                <p>${dayoff.length}</p>
+            </div>
+            <div class="leave-div">
+                <h4 class="schedule-counter">Leave</h4>
+                <p>${leave.length}</p>
+            </div>
+			<div class="other-div">
+                <h4 class="schedule-counter">Other</h4>
+                <p>${other.length}</p>
+            </div>
+`;
+document.querySelector('.schedule-counter-wrapper').innerHTML = scheduleCounterHTML
+};
+
+/*--------------------------------------------*/
+// Function to create an event tooltip
+function createEventTooltip(date, month, year) {
+	let tooltip = document.createElement("div");
+	tooltip.className = "event-tooltip";
+	let eventsOnDate = getEventsOnDate(date, month, year);
+	for (let i = 0; i < eventsOnDate.length; i++) {
+		let event = eventsOnDate[i];
+		let eventDate = new Date(event.date);
+		let eventText = `<strong>${event.title}</strong> - 
+			${event.description} on 
+			${eventDate.toLocaleDateString()}`;
+		let eventElement = document.createElement("p");
+		eventElement.innerHTML = eventText;
+		tooltip.appendChild(eventElement);
+	}
+	return tooltip;
+}
+
+// Function to get events on a specific date
+function getEventsOnDate(date, month, year) {
+	return events.filter(function (event) {
+		let eventDate = new Date(event.date);
+		return (
+			eventDate.getDate() === date &&
+			eventDate.getMonth() === month &&
+			eventDate.getFullYear() === year
+		);
+	});
+}
+
+// Function to check if there are events on a specific date
+function hasEventOnDate(date, month, year) {
+	return getEventsOnDate(date, month, year).length > 0;
+}
