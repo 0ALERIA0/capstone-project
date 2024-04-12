@@ -127,7 +127,7 @@
 
                     <label for="name">Patients Name:</label>
                     <div class="input-div">
-                    <input type="text" id="firts-name" placeholder="first name">
+                    <input type="text" id="first-name" placeholder="first name">
                     <input type="text" id="last-name" placeholder="last name">
                     <input type="text" id="middle-name" placeholder="middle name"><br>
                     </div>
@@ -135,10 +135,10 @@
                     
                     <label for="Gender">Gender:</label>
                     <div class="input-div">
-                    <input type="checkbox" id="Gender" value="male">
-                    <label for="male" id="gender">Male</label>
-                    <input type="checkbox" id="Gender" value="female">
-                    <label for="female" id="gender">Female</label><br>
+                    <select name="" id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
                 </div>
 
                 <div class="input-div">
@@ -149,35 +149,51 @@
                     
                     <label for="date">Date of Birthday:</label>
                     <div class="input-div">
-                    <input type="date" id="input-birthday"><br>
+                    <input type="date" id="input-birthday">
+                    <label for="age">Age:</label>
+                    <input type="number" name="" id="age">
                     </div>
 
                     
                     <label for="marital">Marital Status:</label>
                     <div class="input-div">
-                    <input type="checkbox" name="single" id="marital-single" classs="checkbox-marital">
-                    <label for="single" id="marital-status">Single</label>
-                    <input type="checkbox" name="married" id="marital-married" classs="checkbox-marital">
-                    <label for="married" id="marital-status">Married</label>
-                    <input type="checkbox" name="divorced" id="marital-divorced" classs="checkbox-marital">
-                    <label for="divorced" id="marital-status">Divorced</label>
-                    <input type="checkbox" name="widow" id="marital-widow" classs="checkbox-marital">
-                    <label for="widow" id="marital-status">Widow</label><br>
+                    <select name="" id="marital-status">
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="divorced">Divorced</option>
+                        <option value="widow">Widow</option>
+                    </select>
+                    <br>
                     </div> 
 
                     
                         <label for="address">Patient Address:</label>
                         <div class="add-div">
                         <input type="text" id="street-add" placeholder="Street Address">
+                        <input type="text" id="barangay" placeholder="Barangay">
                         <input type="text" id="municipality" placeholder="Municipality"><br>
                         <input type="text" id="city" placeholder="City">
-                        <input type="number" id="zip-code" placeholder="Zip Code">
                         <input type="text" id="country" placeholder="Country">
+                        <input type="number" id="zip-code" placeholder="Zip Code">
                     </div>
 
                     <div class="modal-footer">
-                        <button class="add-button">Add records</button>
+                        <button id="add-button">Add records</button>
                         <button id="cancel-button">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="patient-records-container">
+                <input type="search" name="" id="searchbar-record">
+                <div class="records-container">
+                    <div class="header-grid">
+                        <div class="name-header">Name</div>
+                        <div class="sex-header">Sex</div>
+                        <div class="last-modified-header">Last Modified</div>
+                        <div class="edit-header">Settings</div>
+                    </div>
+                    <div class="content-grid">
+                        
                     </div>
                 </div>
             </div>
