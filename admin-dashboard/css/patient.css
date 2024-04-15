@@ -158,3 +158,71 @@ label {
      width: 100%;
   }
 }
+
+/*patiend record section*/
+
+.patient-records-container {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  
+}
+
+#searchbar-record {
+  float: right;
+}
+
+.records-container {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.header-grid {
+  display: grid;
+  grid-template-columns: 300px auto 300px 100px;
+  height: 40px;
+  align-content: center;
+  background-color: rgb(146, 121, 121);
+  padding: 10px;
+}
+
+.content-line {
+  display: grid;
+  grid-template-columns: 300px auto 300px 100px;
+  align-content: center;
+  padding: 10px;
+  height: 50px;
+  align-content: center;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+
+.content-line:hover {
+  background-color: rgb(103, 103, 148);
+}
+
+
+
+.edit {
+  color: green;
+  margin-right: 15px;
+  transition: 0.4s;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+}
+
+.delete {
+  color: red;
+  transition: 0.4s;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+}
+
+.edit:hover,
+.delete:hover {
+  transform: scale(1.2);
+}

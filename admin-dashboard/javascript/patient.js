@@ -29,9 +29,6 @@ addRecordsButton.onclick = function() {
 }
 
 //script for displaying records
-
-let modified = new Date(document.lastModified);
-
 let patientRecord = [{
     fname: 'darrelle',
     lname: 'talisic',
@@ -150,7 +147,7 @@ function displayRecord() {
         <div class="content-line">
             <div class="name-record">${records.lname},${records.fname} ${records.mname}</div>
             <div class="sex-record">${records.gender}</div>
-            <div class="lastModified-record">${modified}</div>
+            <div class="lastModified-record"></div>
             <div class="edit-delete"><button class="ri-edit-box-fill edit"></button><button class="ri-delete-bin-4-fill delete"></button></div>
         </div>
         `;
