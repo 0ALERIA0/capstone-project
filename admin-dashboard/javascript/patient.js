@@ -28,54 +28,9 @@ addRecordsButton.onclick = function() {
     modal.style.display = 'none';
 }
 
+
 //script for displaying records
-let patientRecord = [{
-    fname: 'darrelle',
-    lname: 'talisic',
-    mname: 'bandong',
-    gender: 'male',
-    phoneNumber: '091234567',
-    birthDate: '19/09/2000',
-    patientAge: '23',
-    maritalStatus: 'married',
-    staddress: 'valle verde',
-    bgaddress: 'langkaan 2',
-    munaddress: 'dasmarinas',
-    caddress: 'cavite',
-    countryAddress: 'phillipines',
-    zipcode: '4114'
-}, {
-    fname: 'Joice',
-    lname: 'Baguis',
-    mname: 'Mendoza',
-    gender: 'female',
-    phoneNumber: '091234567',
-    birthDate: '22/06/2003',
-    patientAge: '20',
-    maritalStatus: 'married',
-    staddress: 'Putol',
-    bgaddress: 'Tibig',
-    munaddress: 'Silang',
-    caddress: 'cavite',
-    countryAddress: 'phillipines',
-    zipcode: '4117'
-}, {
-    fname: 'Girlie',
-    lname: 'Bandong',
-    mname: 'Niemes',
-    gender: 'female',
-    phoneNumber: '091234567',
-    birthDate: '11/02/1980',
-    patientAge: '27',
-    maritalStatus: 'married',
-    staddress: 'valle verde',
-    bgaddress: 'langkaan 2',
-    munaddress: 'dasmarinas',
-    caddress: 'cavite',
-    countryAddress: 'phillipines',
-    zipcode: '4114'
-},
-]
+let patientRecord = JSON.parse(localStorage.getItem('patientRecord'))
 
 let firstNameInput = document.getElementById('first-name');
 let lastNameInput = document.getElementById('last-name');
@@ -134,9 +89,15 @@ function addRecord() {
             countryAddress: countryAddress,
             zipcode: zipcode
         })
+
+        localStorage.setItem('patientRecord', JSON.stringify(patientRecord));
     }
+    
     displayRecord()
 }
+
+
+
 
 //function to display records
 function displayRecord() {
@@ -144,18 +105,41 @@ function displayRecord() {
 
     patientRecord.forEach((records) => {
         recordListHTML += `
-        <div class="content-line">
+        <a id="open-modal"><div class="content-line" >
             <div class="name-record">${records.lname},${records.fname} ${records.mname}</div>
             <div class="sex-record">${records.gender}</div>
             <div class="lastModified-record"></div>
             <div class="edit-delete"><button class="ri-edit-box-fill edit"></button><button class="ri-delete-bin-4-fill delete"></button></div>
-        </div>
+        </div></a>
         `;
     })
 
     document.querySelector('.content-grid').innerHTML = recordListHTML;
+
+    const modalRecord = document.getElementById('modal-record')
+const openModal = document.getElementById('open-modal');
+const closeModal = document.getElementById('close-record-modal');
+
+document.querySelectorAll('.content-line')
+  .forEach((modalOpen, index) => {
+    modalOpen.addEventListener('click', () => {
+        modalRecord.style.display = 'block';
+    })
+  });
+
+closeModal.onclick = function() {
+    modalRecord.style.display = 'none';
 }
 
+    
+}
+
+//script for modal of patient record
+
+
+
+
+displayRecord();
 
 
 displayRecord();

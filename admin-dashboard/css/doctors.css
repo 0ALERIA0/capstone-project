@@ -13,25 +13,6 @@
 }
 
 
-.add-staff {
-  padding: 10px;
-  background-color: rgb(184, 59, 80);
-  border: none;
-  color: white;
-  height: 40px;
-  border-radius: 10px;
-  margin-left: 20px;
-  
-}
-
-.add-mem-text {
-  margin-left: 5px;
-}
-
-.add-staff {
-  margin-top: 50px;
-}
-
 .employee-grid {
   display: grid;
   grid-template-columns: 180px 180px 180px 180px 180px;
