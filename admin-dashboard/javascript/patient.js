@@ -30,7 +30,24 @@ addRecordsButton.onclick = function() {
 
 
 //script for displaying records
-let patientRecord = JSON.parse(localStorage.getItem('patientRecord'))
+let patientRecord = JSON.parse(localStorage.getItem('patientRecord')) ||
+
+[{
+    fname: 'Darrelle',
+    lname: 'Talisic',
+    mname: 'Bandong',
+    gender: 'Male',
+    phoneNumber: '0912345678',
+    birthDate: '09/19/2000',
+    patientAge: '23',
+    maritalStatus: 'Single',
+    staddress: 'Basil st.',
+    bgaddress: 'Langkaan 2',
+    munaddress: 'Dasmarinas',
+    caddress: 'Cavite',
+    countryAddress: 'Philippines',
+    zipcode: '4114'
+}]
 
 let firstNameInput = document.getElementById('first-name');
 let lastNameInput = document.getElementById('last-name');
