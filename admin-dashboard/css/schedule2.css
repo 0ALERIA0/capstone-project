@@ -171,13 +171,13 @@
   /*bottom wrapper*/
   .bottom-wrapper {
     display: flex;
-    margin-top: 20px;
+    margin-top: 50px;
     column-gap: 20px;
   }
 
   /*css for input form*/
   .input-form {
-    width: 500px;
+    flex: 1;
     background-color: white;
     padding: 10px;
     border-radius: 20px;
@@ -244,6 +244,7 @@
   /*styles for schedule counter*/
 
   .schedule-counter-wrapper {
+    flex: 1;
     display: flex;
     background-color: white;
     width: 300px;

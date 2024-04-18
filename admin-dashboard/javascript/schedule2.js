@@ -249,8 +249,8 @@ function createEventTooltip(date, month, year) {
 	for (let i = 0; i < eventsOnDate.length; i++) {
 		let event = eventsOnDate[i];
 		let eventDate = new Date(event.date);
-		let eventText = `<strong>${event.title}</strong> - 
-			${event.description} on 
+		let eventText = `<strong>${event.name}</strong> - 
+			${event.status} on 
 			${eventDate.toLocaleDateString()}`;
 		let eventElement = document.createElement("p");
 		eventElement.innerHTML = eventText;

@@ -14,8 +14,8 @@
 
 
 .employee-grid {
-  display: grid;
-  grid-template-columns: 180px 180px 180px 180px 180px;
+  display: flex;
+  flex-wrap: wrap;
   column-gap: 20px;
   row-gap: 20px;
 }
@@ -25,6 +25,7 @@
 }
 
 .employee-card {
+  width: 200px;
   height: 190px;
   background-color: rgb(36, 93, 112);
   padding: 10px;
