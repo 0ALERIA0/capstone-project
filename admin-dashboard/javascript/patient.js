@@ -130,7 +130,7 @@ function displayRecord() {
             <td class="name-record">${records.lname},${records.fname} ${records.mname}</td>
             <td class="sex-record">${records.gender}</td>
             <td class="lastModified-record"></td>
-            <td class="edit-delete"><button id="open-modal" class="ri-eye-fill modal-click"><button class="ri-edit-box-fill edit"></button><button class="ri-delete-bin-4-fill delete"></button></button></td>
+            <td class="edit-delete"><button id="open-modal" class="ri-eye-fill modal-click"></button><button class="ri-edit-box-fill edit"></button><button class="ri-delete-bin-4-fill delete"></button></td>
         </tr>
         `;
     })
