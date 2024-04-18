@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="doctor-css/doctor-acc.css">
-    <link rel="stylesheet" href="doctor-css/dashboard.css">
+    <link rel="stylesheet" href="doctor-css/schedule.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <title>Dashboard-copy</title>
+    <title>Doctor Schedule</title>
 </head>
 
 <body>
@@ -43,13 +43,13 @@
         <div class="sidebar">
             <ul class="sidebar--items">
                 <li>
-                    <a href="index.html" id="active--link">
+                    <a href="doctor-dashboard.html">
                         <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
                         <span class="sidebar--item">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="doctor-schedule.html">
+                    <a href="doctor-schedule.html"  id="active--link">
                         <span class="icon icon-2"><i class="ri-calendar-2-line"></i></span>
                         <span class="sidebar--item">Schedule</span>
                     </a>
@@ -84,43 +84,9 @@
             </ul>
         </div>
         <div class="main--content">
-        <h3 id="dashboard-title">Welcome Doctor!</h3>
-        <div class="content">
-             <div class="graphs-div">
-                <div class="patient-graph">
-                    <p class="patient-activites-word">Patient Activities</p>
-                    <canvas id="myChart">
-                    </canvas>
-                </div>
-                <div class="patient-donutchart">
-                    <canvas id="myDonutChart"></canvas>
-                </div>
-            </div>
-            <div class="table">
-                <div class="title">
-                    <h3 class="section--title">Scheduled Patients To You:</h3>            
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Date Scheduled</th>
-                            <th>Gender</th>
-                            <th>Age</th>
-                            <th>Settings</th>
-                        </tr>
-                    </thead>
-                    <tbody class="js-tables-scheduled-patients">
-                        
-                    </tbody>
-                </table>
-            </div>
-
         </div>
-    </div>
-    </section>
     <script src="doctor-javascript/doctor-acc.js"></script>
-    <script type="module" src="doctor-javascript/dashboard.js"></script>
+    <script type="module" src="doctor-javascript/schedule.js"></script>
 </body>
 
 </html>
