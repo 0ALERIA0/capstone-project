@@ -111,6 +111,7 @@ function addRecord() {
     }
     
     displayRecord()
+    renderPagination(patientRecord);
 }
 
 
@@ -118,26 +119,28 @@ function addRecord() {
 
 //function to display records
 function displayRecord() {
+    const startIndex = (currentPage - 1) * itemPerPage;
+    const endIndex = startIndex + itemPerPage;
+    const paginatedData = patientRecord.slice(startIndex, endIndex)
     recordListHTML = "";
 
-    patientRecord.forEach((records) => {
+    paginatedData.forEach((records) => {
         recordListHTML += `
-        <a id="open-modal"><div class="content-line" >
-            <div class="name-record">${records.lname},${records.fname} ${records.mname}</div>
-            <div class="sex-record">${records.gender}</div>
-            <div class="lastModified-record"></div>
-            <div class="edit-delete"><button class="ri-edit-box-fill edit"></button><button class="ri-delete-bin-4-fill delete"></button></div>
-        </div></a>
+        <tr class="content-line" >
+            <td class="name-record">${records.lname},${records.fname} ${records.mname}</td>
+            <td class="sex-record">${records.gender}</td>
+            <td class="lastModified-record"></td>
+            <td class="edit-delete"><button id="open-modal" class="ri-eye-fill modal-click"><button class="ri-edit-box-fill edit"></button><button class="ri-delete-bin-4-fill delete"></button></button></td>
+        </tr>
         `;
     })
 
     document.querySelector('.content-grid').innerHTML = recordListHTML;
 
     const modalRecord = document.getElementById('modal-record')
-const openModal = document.getElementById('open-modal');
-const closeModal = document.getElementById('close-record-modal');
+    const closeModal = document.getElementById('close-record-modal');
 
-document.querySelectorAll('.content-line')
+document.querySelectorAll('.modal-click')
   .forEach((modalOpen, index) => {
     modalOpen.addEventListener('click', () => {
         modalRecord.style.display = 'block';
@@ -148,15 +151,51 @@ closeModal.onclick = function() {
     modalRecord.style.display = 'none';
 }
 
-    
+renderPagination(patientRecord);
 }
 
-//script for modal of patient record
+//script for pagination
 
+const table = document.getElementById('patient-table');
+const pagination = document.getElementById('pagination');
 
+const itemPerPage = 10;
+let currentPage = 1;
 
-
-displayRecord();
-
+// Function to render pagination buttons
+function renderPagination(patientRecord) {
+    const totalPages = Math.ceil(patientRecord.length / itemPerPage);
+  
+    let buttons = '';
+    for (let i = 1; i <= totalPages; i++) {
+      buttons += `<button onclick="goToPage(${i})" class="pagination-buttons">${i}</button>`;
+    }
+  
+    pagination.innerHTML = buttons;
+  }
+  
+  // Function to navigate to a specific page
+  function goToPage(page) {
+    currentPage = page;
+    displayRecord()
+  }
+  
+  // Function to navigate to the previous page
+  function prevPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      displayRecord()
+    }
+  }
+  
+  // Function to navigate to the next page
+  function nextPage() {
+    const totalPages = Math.ceil(patientRecord.length / itemPerPage);
+    if (currentPage < totalPages) {
+      currentPage++;
+      displayRecord();
+    }
+  }
+renderPagination(patientRecord);
 
 displayRecord();

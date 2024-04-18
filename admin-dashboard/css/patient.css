@@ -11,6 +11,7 @@
 #add-record:hover {
   transform: scale(1.1);
   background-color: green;
+  color: white;
 }
 
 #modal-wrapper {
@@ -173,35 +174,26 @@ label {
 }
 
 .records-container {
-  background-color: white;
   width: 100%;
-  height: 100%;
-  overflow: auto;
+  border-collapse: collapse;
+  background-color: lightgrey;
 }
 
-.header-grid {
-  display: grid;
-  grid-template-columns: 300px auto 300px 100px;
-  height: 40px;
-  align-content: center;
-  background-color: rgb(146, 121, 121);
+.records-container tr:hover {
+  background-color: white;
+}
+
+.records-container th {
+  text-align: left;
+  background-color: rgb(123, 123, 221);
   padding: 10px;
+  margin-bottom: 5px;
 }
 
-.content-line {
-  display: grid;
-  grid-template-columns: 300px auto 300px 100px;
-  align-content: center;
+.records-container td {
   padding: 10px;
-  height: 50px;
-  align-content: center;
-  border-bottom: 1px solid black;
-  cursor: pointer;
-}
-
-.content-line:hover {
-  background-color: rgb(103, 103, 148);
-}
+  border: 1px solid #ddd;
+  }
 
 
 
@@ -215,6 +207,16 @@ label {
 }
 
 .delete {
+  margin-right: 15px;
+  color: red;
+  transition: 0.4s;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+}
+
+.modal-click {
+  margin-right: 15px;
   color: red;
   transition: 0.4s;
   height: 30px;
@@ -223,7 +225,8 @@ label {
 }
 
 .edit:hover,
-.delete:hover {
+.delete:hover,
+.modal-click:hover {
   transform: scale(1.2);
 }
 
@@ -270,4 +273,27 @@ label {
 
 #close-record-modal:hover {
   color: red;
+}
+
+/*style for pagination buttons*/
+
+.pagination-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.navigation,
+.pagination-buttons {
+  padding: 3px;
+  background-color: rgb(123, 123, 221);
+  border: none;
+  color: white;
+  margin-right: 3px;
+}
+
+.navigation:hover,
+.pagination-buttons:hover {
+  background-color: white;
+  color: black;
 }

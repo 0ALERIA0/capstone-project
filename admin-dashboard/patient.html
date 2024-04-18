@@ -136,8 +136,8 @@
                     <label for="Gender">Gender:</label>
                     <div class="input-div">
                     <select name="" id="gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                 </div>
 
@@ -185,16 +185,26 @@
             </div>
             <div class="patient-records-container">
                 <input type="search" name="" id="searchbar-record">
-                <div class="records-container">
-                    <div class="header-grid">
-                        <div class="name-header">Name</div>
-                        <div class="sex-header">Sex</div>
-                        <div class="last-modified-header">Last Modified</div>
-                        <div class="edit-header">Settings</div>
-                    </div>
-                    <div class="content-grid">
+                <table class="records-container" id="patient-table">
+                    <thead class="header-grid">
+                    <tr>
+                        <th class="name-header">Name</th>
+                        <th class="sex-header">Sex</th>
+                        <th class="last-modified-header">Last Modified</th>
+                        <th class="edit-header">Manage</th>
+                    </tr>
+                    </thead>
+                    <tbody class="content-grid">
                         
+                    </tbody>
+                </table>
+                <div class="pagination-section">
+                    <button onclick="prevPage()" class="navigation">&laquo; Previous</button>
+                    <div id="pagination">
+                        <button onclick="prevPage()" class="pagination-buttons">Previous</button>
+                        <button onclick="nextPage()" class="pagination-buttons">Next</button>
                     </div>
+                    <button onclick="nextPage()" class="navigation">Next &raquo;</button>
                 </div>
             </div>
 
