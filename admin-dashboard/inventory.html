@@ -111,14 +111,28 @@
             <div class="inventory-div">
                 <h2>Inventory</h2>
                 <button class="register-item-button" id="register-item">Register Item</button>
-                <input type="text" id="item-name-input">
-                <select name="category-selector" id="input-select-category">
-                    <option value="Medicine">Medicine</option>
-                    <option value="Equipment">Equipment</option>
-                </select>
-                <input type="number" id="input-item-quantity">
+
+                        <div class="modal-reg-item" id="register-modal">
+                            <div class="modal-item-content">
+                                <h3 id="item-title">Item Registration</h3>
+                                <input type="text" id="item-name-input" placeholder="Item Name">
+                                <select name="category-selector" id="input-select-category">
+                                    <option value="">Choose Category</option>
+                                    <option value="Medicine">Medicine</option>
+                                    <option value="Equipment">Equipment</option>
+                                </select>
+                                <input type="number" id="input-item-quantity" placeholder="Quantity">
+                                <button id="cancel-button-item">Cancel</button>
+                                <button id="confirm-button-item">Confirm</button>
+                                <div class="invalid-input">
+
+                                </div>
+                                
+                        </div>
+                        </div>
+                
                 <div class="item-table-div">
-                    <table class="item-table">
+                    <table class="item-table" id="table-item">
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -132,6 +146,14 @@
                             
                         </tbody>
                     </table>
+                    <div class="pagination-section">
+                        <button class="navigation" id="previous-page">&laquo; Previous</button>
+                        <div id="pagination">
+                            <button class="pagination-buttons">Previous</button>
+                            <button class="pagination-buttons">Next</button>
+                        </div>
+                        <button class="navigation" id="next-page">Next &raquo;</button>
+                    </div>
                 </div>
             </div>
         </div>
