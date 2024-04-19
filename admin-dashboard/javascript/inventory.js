@@ -8,6 +8,9 @@ let itemIdCounter = localStorage.getItem('itemIdCounter');
 let itemModal = document.getElementById('register-modal');
 const itemTable = document.getElementById('table-item');
 const pagination = document.getElementById('pagination');
+const searchBar = document.getElementById('search-bar');
+searchBar.addEventListener('input', searchItems);
+
 
 
 if (!itemIdCounter) {
@@ -23,6 +26,7 @@ function addItem() {
     let Quantity = itemQuantityInput.value;
     
     if (itemName && category && Quantity) {
+        updateItemIdCounter();
         // Check if item with the same name already exists
         if (inventoryItems.some(item => item.itemName === itemName)) {
             document.querySelector('.invalid-input').innerHTML = `<p id="already-exists">Item Aready exists!!</p>`
@@ -50,10 +54,11 @@ function addItem() {
     renderPagination(inventoryItems);
 }
 
-function displayItems() {
+function displayItems(items = inventoryItems) {
+    items.sort((a, b) => a.ID - b.ID);
     const startIndex = (currentPage - 1) * itemPerPage;
     const endIndex = startIndex + itemPerPage;
-    const paginatedData = inventoryItems.slice(startIndex, endIndex)
+    const paginatedData = items.slice(startIndex, endIndex);
     let inventoryListHTML = "";
 
     paginatedData.forEach((item) => {
@@ -63,14 +68,48 @@ function displayItems() {
                 <td>${item.itemName}</td>
                 <td>${item.category}</td>
                 <td>${item.Quantity}</td>
-                <td><button>See details</button><button>edit</button><button>delete</button></td>
+                <td>
+                    <button id="see-item">See details</button>
+                    <button id="edit-item">edit</button>
+                    <button class="delete-items" id="delete-item" data-item-id="${item.ID}">delete</button>
+                </td>
             </tr>`;
     });
 
     document.querySelector('.inventory-content-items').innerHTML = inventoryListHTML;
     renderPagination(inventoryItems)
+
+    document.querySelectorAll('.delete-items').forEach(deleteItem => {
+        deleteItem.addEventListener('click', () => {
+            const itemIdToDelete = parseInt(deleteItem.dataset.itemId);
+            const index = inventoryItems.findIndex(item => item.ID === itemIdToDelete);
+            if (index !== -1) {
+                inventoryItems.splice(index, 1);
+                updateItemIdCounter(); // Update item ID counter
+                displayItems();
+                localStorage.setItem('inventoryItems', JSON.stringify(inventoryItems));
+                localStorage.setItem('itemIdCounter', itemIdCounter); // Save updated counter
+            }
+        });
+    });
+    
     
 }
+
+function updateItemIdCounter() {
+    const usedIds = new Set(inventoryItems.map(item => item.ID));
+    for (let i = 1; i <= itemIdCounter; i++) {
+        if (!usedIds.has(i)) {
+            itemIdCounter = i;
+            return;
+        }
+    }
+    // If all IDs from 1 to itemIdCounter are used, assign the next available ID
+    itemIdCounter++;
+}
+
+
+
 
 document.getElementById('confirm-button-item').addEventListener('click', addItem);
 
@@ -144,6 +183,13 @@ function renderPagination(inventoryItems) {
   
   document.getElementById('previous-page').addEventListener('click', prevPage);
 document.getElementById('next-page').addEventListener('click', nextPage);
+
+
+function searchItems() {
+    const searchQuery = searchBar.value.trim().toLowerCase();
+    const filteredItems = inventoryItems.filter(item => item.itemName.toLowerCase().includes(searchQuery));
+    displayItems(filteredItems);
+}
 
 renderPagination(inventoryItems);
 
