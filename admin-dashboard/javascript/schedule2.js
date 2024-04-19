@@ -211,7 +211,7 @@ function displaySchedule() {
 	events.forEach((data) => {
 		scheduleListHTML += `
 		<div class="schedule-cards">
-			<img src="images/nurse1.jpg" id="schedule-picture">
+			<img src="images/profile.jpg" id="schedule-picture">
 			<p class="schedule-bullet">${data.name}</p>
 			<p class="schedule-date">${data.date}</p>
 		</div>

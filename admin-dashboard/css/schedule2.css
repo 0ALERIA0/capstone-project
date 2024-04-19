@@ -1,316 +1,223 @@
+/* General styling */
+
+
+/* Calendar styling */
+
 .top-wrapper {
   display: flex;
-  column-gap: 20px;
+  gap: 20px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#monthAndYear {
+  text-align: center;
+}
+
+#next {
+  float: right;
+}
+
+#next,
+#previous {
+  height: 30px;
+  width: 40px;
+  background-color: rgb(104, 173, 104);
+  border: none;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+#next:hover,
+#previous:hover {
+  transform: scale(1.2);
 }
 
 .wrapper {
-    flex: 730px;
-    margin-top: 20px;
-    background-color: white;
-    padding-top: 10px;
-    border-radius: 10px;
-  }
-  
-  /* Buttons in the calendar */
-  .button-container-calendar button {
-    cursor: pointer;
-    background: green;
-    color: #fff;
-    border: 1px solid green;
-    border-radius: 4px;
-    padding: 5px 10px;
-  }
-  
-  /* Calendar table */
-  .table-calendar {
-    border-collapse: collapse;
-    width: 100%;
-    border-bottom: 1px solid #dadada;
-  }
-  
-  .table-calendar td,
-  .table-calendar th {
-    padding: 5px;
-    border: 1px solid #e2e2e2;
-    text-align: center;
-    vertical-align: top;
-  }
-  
-  /* Date picker */
-  .date-picker.selected {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    outline: 1px dashed #00BCD4;
-  }
-  
-  .date-picker.selected span {
-    border-bottom: 2px solid currentColor;
-  }
-  
-  /* Day-specific styling */
-  .date-picker:nth-child(1) {
-    color: red;
-    /* Sunday */
-  }
-  
-  .date-picker:nth-child(6) {
-    color: green;
-    /* Friday */
-  }
-  
-  /* Hover effect for date cells */
-  .date-picker:hover {
-    background-color: green;
-    color: white;
-    cursor: pointer;
-  }
-  
-  /* Header for month and year */
-  #monthAndYear {
-    text-align: center;
-    margin-top: 0;
-  }
-  
-  /* Navigation buttons */
-  .button-container-calendar {
-    position: relative;
-    margin-bottom: 1em;
-    overflow: hidden;
-    clear: both;
-  }
-  
-  #previous {
-    float: left;
-    width: 50px;
-    margin-left: 20px;
-  }
-  
-  #next {
-    float: right;
-    width: 50px;
-    margin-right: 20px;
-  }
-
-  #previous:hover,
-  #next:hover {
-    transform: scale(1.2);
-  }
-
-  /* Footer styling */
-  .footer-container-calendar {
-    margin-top: 1em;
-    
-    padding: 10px 0;
-    margin-left: 20px;
-    padding-right: 20px;
-  }
-  
-  .footer-container-calendar select {
-    cursor: pointer;
-    background: #ffffff;
-    color: #585858;
-    border: 1px solid #bfc5c5;
-    border-radius: 3px;
-    padding: 5px 1em;
-  }
-
-  .calendar-title {
-    text-align: center;
-    color: rgb(55, 155, 189);
-    margin-bottom: 5px;
-  }
-
-  #monthAndYear {
-    color: rgb(55, 155, 189);
-  }
-
-  .scheduled-list {
-    max-height: 350px;
-    flex: 300px;
-    background-color: white;
-    margin-top: 20px;
-    border-radius: 10px;
-    padding: 5px;
-    overflow: scroll;
-  }
-
-  .schedule-title {
-    text-align: center;
-    font-style: italic;
-    color: rgb(55, 155, 189);
-    border-bottom: 1px solid black;
-    padding: 5px;
-    margin-bottom: 10px;
-  }
-
-  .schedule-cards {
-    display: flex;
-    justify-self:center;
-    align-items: center;
-    border-bottom: 1px solid black;
-    padding: 2px;
-    justify-content: space-between;
-  }
-
-  .schedule-bullet{
-    display: inline-block;
-    margin-left: 10px;
-  }
-
-  .schedule-date {
-    margin-right: 10px;
-  }
-
-  #schedule-picture {
-    height: 30px;
-    width: 30px;
-    border-radius: 15px;
-  }
-
-
-  /*bottom wrapper*/
-  .bottom-wrapper {
-    display: flex;
-    margin-top: 50px;
-    column-gap: 20px;
-  }
-
-  /*css for input form*/
-  .input-form {
-    flex: 1;
-    background-color: white;
-    padding: 10px;
-    border-radius: 20px;
-  }
-
-  .list-title-header {
-    height: 40px;
-  }
-
-#list-title {
-  text-align: center;
-  color: rgb(55, 155, 189);
+  flex: 1;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
 }
 
-  #name-input {
-    height: 30px;
-    border-radius: 10px;
-    border: 1px solid rgb(194, 194, 240);
-    padding: 3px;
-    width: 250px;
-    margin-bottom: 10px;
-    margin-right: 20px;
-    display: block;
-  }
+.calendar-title {
+  text-align: center;
+  color: #379bbd;
+  margin-bottom: 10px;
+}
 
-  #status-input {
-    float: right;
-    height: 25px;
-    border: 1px solid rgb(194, 194, 240);
-  }
+.calendar-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
 
-  #date-input {
-    height: 30px;
-    width: 250px;
-    display: block;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    border: 1px solid rgb(194, 194, 240);
-  }
+.table-calendar {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
 
-  #description-input {
-    height: 30px;
-    width: 250px;
-    border-radius: 10px;
-    border: 1px solid rgb(194, 194, 240);
-    padding: 3px;
-  }
+.table-calendar th,
+.table-calendar td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
 
-  .add-event-button {
-    float: right;
-    width: 80px;
-    height: 40px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    background-color: rgb(118, 218, 118);
-  }
+.table-calendar th {
+  background-color: #f2f2f2;
+}
 
-  .add-event-button:hover {
-    background-color: rgb(34, 153, 34);
-    box-shadow: 2px 2px #888888;
-  }
-
-  /*styles for schedule counter*/
-
-  .schedule-counter-wrapper {
-    flex: 1;
-    display: flex;
-    background-color: white;
-    width: 300px;
-    padding: 15px;
-    border-radius: 20px;
-    margin-left: 30px;
-  }
-
-  .dayoff-div,
-  .leave-div,
-  .other-div {
-    flex: 1;
-    border: 1px solid gray;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 10px;
-    margin-right: 5px;
-  }
-
-  .schedule-counter {
-    color: #585858;
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-
-  .schedule-counter-wrapper p {
-    font-size: 60px;
-    color: lightcoral;
-  }
-
-
-
-
-
-
-.event-tooltip {
-    position: absolute;
-    background-color: rgba(234, 232, 232, 0.763);
-    color: black;
-    padding: 10px;
-    border-radius: 4px;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: none;
-    transition: all 0.3s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-  
-.event-marker:hover .event-tooltip {
-    display: block;
-  }
-
-.event-marker {
+.date-picker {
   position: relative;
+  cursor: pointer;
+}
+
+.date-picker.selected {
+  background-color: #379bbd;
+  color: white;
+}
+
+.date-picker:hover {
+  background-color: #ccc;
 }
 
 .event-marker::after {
   content: '';
-  display: block;
-  width: 6px;
-  height: 6px;
-  background-color: red;
-  border-radius: 50%;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.event-tooltip {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  display: none;
+}
+
+.event-marker:hover .event-tooltip {
+  display: block;
+}
+
+/* Schedule list styling */
+
+.scheduled-list {
+  flex: 1;
+  max-width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  overflow: auto;
+}
+
+.schedule-title {
+  text-align: center;
+  font-style: italic;
+  color: #379bbd;
+  margin-bottom: 20px;
+}
+
+.schedule-cards-wrapper {
+  display: grid;
+  gap: 10px;
+}
+
+.schedule-cards {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.schedule-cards img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.schedule-bullet {
+  flex: 1;
+}
+
+.schedule-date {
+  font-size: 0.8em;
+}
+
+/* Input form styling */
+
+.input-form {
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.input-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.input-form input,
+.input-form select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.add-event-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #379bbd;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-event-button:hover {
+  background-color: #1e6a7b;
+}
+
+/* Schedule counter styling */
+
+.schedule-counter-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.schedule-counter-wrapper div {
+  flex: 1;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.schedule-counter {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.schedule-counter p {
+  font-size: 24px;
+  margin: 0;
+  color: #379bbd;
 }

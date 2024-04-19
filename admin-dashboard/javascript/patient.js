@@ -3,6 +3,7 @@ const addButton = document.getElementById('add-record');
 const closeX = document.getElementsByClassName('close')[0];
 const cancelButton = document.getElementById('cancel-button');
 const addRecordsButton = document.getElementById('add-button')
+const searchInput = document.getElementById('searchbar-record');
 
 addButton.onclick = function() {
     modal.style.display = 'block';
@@ -20,34 +21,47 @@ window.onclick = function(event) {
 
 cancelButton.onclick = function() {
     modal.style.display = 'none';
+    firstNameInput.value = "";
+    lastNameInput.value = "";
+    middleNameInput.value = "";
+    genderInput.value = "";
+    phoneNumberInput.value = "";
+    birthdayInput.value = "";
+    ageInput.value = "";
+    maritalStatusInput.value = "";
+    streetInput.value = "";
+    barangayInput.value = "";
+    municipalityInput.value = "";
+    cityInput.value = "";
+    countryInput.value = "";
+    zipcodeInput.value = "";
 }
 
 addRecordsButton.onclick = function() {
     addRecord();
     displayRecord();
     modal.style.display = 'none';
+    firstNameInput.value = "";
+    lastNameInput.value = "";
+    middleNameInput.value = "";
+    genderInput.value = "";
+    phoneNumberInput.value = "";
+    birthdayInput.value = "";
+    ageInput.value = "";
+    maritalStatusInput.value = "";
+    streetInput.value = "";
+    barangayInput.value = "";
+    municipalityInput.value = "";
+    cityInput.value = "";
+    countryInput.value = "";
+    zipcodeInput.value = "";
 }
 
 
 //script for displaying records
 let patientRecord = JSON.parse(localStorage.getItem('patientRecord')) ||
 
-[{
-    fname: 'Darrelle',
-    lname: 'Talisic',
-    mname: 'Bandong',
-    gender: 'Male',
-    phoneNumber: '0912345678',
-    birthDate: '09/19/2000',
-    patientAge: '23',
-    maritalStatus: 'Single',
-    staddress: 'Basil st.',
-    bgaddress: 'Langkaan 2',
-    munaddress: 'Dasmarinas',
-    caddress: 'Cavite',
-    countryAddress: 'Philippines',
-    zipcode: '4114'
-}]
+[]
 
 let firstNameInput = document.getElementById('first-name');
 let lastNameInput = document.getElementById('last-name');
@@ -118,10 +132,10 @@ function addRecord() {
 
 
 //function to display records
-function displayRecord() {
+function displayRecord(records = patientRecord) {
     const startIndex = (currentPage - 1) * itemPerPage;
     const endIndex = startIndex + itemPerPage;
-    const paginatedData = patientRecord.slice(startIndex, endIndex)
+    const paginatedData = records.slice(startIndex, endIndex)
     recordListHTML = "";
 
     paginatedData.forEach((records) => {
@@ -130,7 +144,7 @@ function displayRecord() {
             <td class="name-record">${records.lname},${records.fname} ${records.mname}</td>
             <td class="sex-record">${records.gender}</td>
             <td class="lastModified-record"></td>
-            <td class="edit-delete"><button id="open-modal" class="ri-eye-fill modal-click"></button><button class="ri-edit-box-fill edit"></button><button class="ri-delete-bin-4-fill delete"></button></td>
+            <td class="edit-delete"><button id="open-modal" class="ri-eye-fill modal-click"></button><button class="ri-edit-box-fill edit"></button><button class="ri-delete-bin-4-fill delete delete-patient-record"></button></td>
         </tr>
         `;
     })
@@ -151,6 +165,15 @@ closeModal.onclick = function() {
     modalRecord.style.display = 'none';
 }
 
+document.querySelectorAll('.delete-patient-record')
+.forEach((modalDelete, index) => {
+  modalDelete.addEventListener('click', () => {
+    patientRecord.splice(index, 1)
+    localStorage.setItem('patientRecord', JSON.stringify(patientRecord))
+    displayRecord();
+    renderPagination(patientRecord)
+  })
+})
 renderPagination(patientRecord);
 }
 
@@ -196,6 +219,23 @@ function renderPagination(patientRecord) {
       displayRecord();
     }
   }
+
+  searchInput.addEventListener('input', function() {
+    const searchValue = this.value.toLowerCase(); // Convert input value to lowercase for case-insensitive search
+
+    const filteredRecords = patientRecord.filter(record => {
+        // Check if the patient's name contains the search value
+        return (
+            record.fname.toLowerCase().includes(searchValue) ||
+            record.lname.toLowerCase().includes(searchValue) ||
+            record.mname.toLowerCase().includes(searchValue)
+        );
+    });
+
+    // Display the filtered records
+    displayRecord(filteredRecords);
+});
+
 renderPagination(patientRecord);
 
 displayRecord();
