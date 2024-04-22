@@ -305,6 +305,12 @@ a {
     min-width: 220px;
     height: auto;
     transition: .3s;
+    animation-name: rotateCards;
+    animation-duration: 2s;
+}
+
+@keyframes rotateCards {
+    100%{transform: rotateX(360deg)}
 }
 
 .card:hover {
