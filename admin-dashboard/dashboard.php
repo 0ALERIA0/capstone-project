@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include('header.php') ?>
-
+    <?php include('header.php') ?>
 
         <div class="main--content">
             <div class="overview">

@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -7,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/styles1.css">
+    <link rel="stylesheet" href="css/inventory.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <title>Dashboard-copy</title>
+    <title>Castelo Medical Clinic</title>
 </head>
 
 <body>
@@ -43,38 +42,38 @@
         <div class="sidebar">
             <ul class="sidebar--items">
                 <li>
-                    <a href="index.html" id="active--link">
+                    <a href="dashboard.php">
                         <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
                         <span class="sidebar--item">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="schedule.html">
+                    <a href="schedule.php">
                         <span class="icon icon-2"><i class="ri-calendar-2-line"></i></span>
                         <span class="sidebar--item">Schedule</span>
                     </a>
                 
                 </li>
                 <li>
-                    <a href="doctors.html">
+                    <a href="doctors.php">
                         <span class="icon icon-3"><i class="ri-user-2-line"></i></span>
                         <span class="sidebar--item" style="white-space: nowrap;">Organization</span>
                     </a>
                 </li>
                 <li>
-                    <a href="patient.html">
+                    <a href="patient.php">
                         <span class="icon icon-4"><i class="ri-user-line"></i></span>
                         <span class="sidebar--item">Patients</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="pharmacy.php">
                         <span class="icon icon-10"><i class="ri-medicine-bottle-fill"></i></span>
                         <span class="sidebar--item">Pharmacy</span>
                     </a>
                 </li>
                 <li>
-                    <a href="inventory.html">
+                    <a href="inventory.php">
                         <span class="icon icon-11"><i class="ri-file-list-2-fill"></i></span>
                         <span class="sidebar--item">Inventory</span>
                     </a>
@@ -101,68 +100,3 @@
                 </li>
             </ul>
         </div>
-        <div class="main--content">
-            <div class="overview">
-                <div class="title">
-                    <h3 class="section--title">Overview</h3>
-                    
-                </div>
-                <div class="cards js-cards">
-
-                </div>
-            </div>
-            <div class="doctors">
-                <div class="title">
-                    <h3 class="section--title">Doctors</h3>
-                    <div class="doctors--right--btns">
-                        <select name="date" id="date" class="dropdown doctor--filter">
-                            <option value="all">All</option>
-                            <option value="onduty">On Duty</option>
-                            <option value="dayoff">Day Off</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="doctors--cards items"></div>
-            </div>
-            <div class="lowerpart-div">
-
-                <div class="graphs-div">
-                    <div class="patient-graph">
-                        <p class="patient-activites-word">Patient Activities</p>
-                        <canvas id="myChart">
-                        </canvas>
-                    </div>
-                    <div class="patient-donutchart">
-                        <canvas id="myDonutChart"></canvas>
-                    </div>
-                </div>
-               
-                <div class="table">
-                    <div class="title">
-                        <h3 class="section--title">Scheduled Patients</h3>            
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Date Scheduled</th>
-                                <th>Gender</th>
-                                <th>Age</th>
-                                <th>Settings</th>
-                            </tr>
-                        </thead>
-                        <tbody class="js-tables-scheduled-patients">
-                            
-                        </tbody>
-                    </table>
-                </div>
-                
-            </div>
-            
-        </div>
-    </section>
-    <script src="javascript/main.js"></script>
-    <script src="javascript/index.js" type="module"></script>
-</body>
-
-</html>
