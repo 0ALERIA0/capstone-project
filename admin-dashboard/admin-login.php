@@ -28,6 +28,7 @@
                         <input type="submit" value="Login" id="submit-button">
                     </div>
                 </form>
+            <a href="../index.php"><p class="return">&laquo;Return to Home</p></a>
             </div>
         </div>
     </div>
