@@ -12,6 +12,9 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/styles1.css">
     <link rel="stylesheet" href="css/inventory.css">
+    <link rel="stylesheet" href="css/doctors.css">
+    <link rel="stylesheet" href="css/patient.css">
+    <link rel="stylesheet" href="css/schedule2.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title>Castelo Medical Clinic</title>
@@ -100,11 +103,12 @@ $username = $_SESSION['username'];
                 </li>
                 <li>
                 <form action="logout.php" method="post">
-                
+                <a href="">
                 <button type="submit" value="Logout" class="sidebar--item" id="logout-button">
                         <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
                         Logout
                     </button>
+                    </a>
                 </form>
                 </li>
             </ul>
