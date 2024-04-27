@@ -1,3 +1,9 @@
+<?php
+
+
+// If user is logged in, retrieve the username
+$username = $_SESSION['username'];
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -34,7 +40,7 @@
                     <img src="images/profile.jpg" alt="profile" class="admin-pic">
                 </div>
 
-                <div class="account-name">admin</div>
+                <div class="account-name"><?php echo $username; ?></div>
             </div>
         </div>
     </section>
@@ -93,10 +99,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                <form action="logout.php" method="post">
+                
+                <button type="submit" value="Logout" class="sidebar--item" id="logout-button">
                         <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
-                        <span class="sidebar--item">Logout</span>
-                    </a>
+                        Logout
+                    </button>
+                </form>
                 </li>
             </ul>
         </div>

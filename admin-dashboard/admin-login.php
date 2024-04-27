@@ -16,7 +16,7 @@
                 <img src="images/hospital-logo.jpg" alt="castelo-logo" id="castelo-logo">
             </div>
             <div class="form">
-                <form action="">
+                <form action="login.php" method="POST">
                     <h2>Welcome admin</h2>
                     <h3 class="sign-in-title">SIGN IN</h3>
                     <label for="username">Username:</label>

@@ -175,7 +175,8 @@ a {
 }
 
 .sidebar--items a,
-.sidebar--bottom-items a {
+.sidebar--bottom-items a,
+.sidebar--bottom-items button {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
@@ -186,7 +187,8 @@ a {
 }
 
 .sidebar--items a:hover,
-.sidebar--bottom-items a:hover {
+.sidebar--bottom-items a:hover,
+.sidebar--bottom-items button:hover {
     background-color: #5073fb;
     color: #fff;
 }
@@ -198,6 +200,11 @@ a {
 
 .sidebar--bottom-items li:last-child a {
     margin-bottom: 0;
+}
+
+#logout-button{
+    outline: none;
+    border: none;
 }
 
 .icon {
