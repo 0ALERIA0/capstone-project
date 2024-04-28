@@ -176,7 +176,8 @@ a {
 
 .sidebar--items a,
 .sidebar--bottom-items a,
-.sidebar--bottom-items button {
+.sidebar--bottom-items button,
+#logout-button {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
@@ -188,7 +189,8 @@ a {
 
 .sidebar--items a:hover,
 .sidebar--bottom-items a:hover,
-.sidebar--bottom-items button:hover {
+.sidebar--bottom-items button:hover,
+#logout-button:hover {
     background-color: #5073fb;
     color: #fff;
 }
@@ -205,6 +207,8 @@ a {
 #logout-button{
     outline: none;
     border: none;
+    background-color: white;
+    width: 100%;
 }
 
 .icon {
@@ -288,6 +292,7 @@ a {
 
 .section--title {
     font-weight: 400;
+    color: black;
 }
 
 .dropdown {

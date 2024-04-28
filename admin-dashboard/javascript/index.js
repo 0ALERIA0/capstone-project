@@ -2,28 +2,6 @@
   import { doctors } from "./data/doctors-data.js";
   import { scheduledPatients } from "./data/patients-data.js";
 
-/* script for Overview section */
-
-  let OverviewContentHTML = '';
-
-  dataOverview.forEach((data) => {
-    OverviewContentHTML += `
-    
-          <div class="card ${data.typeOfCard}">
-              <div class="card--data">
-                  <div class="card--content">
-                      <h5 class="card--title">${data.title}</h5>
-                      <h1>${data.count}</h1>
-                  </div>
-                  <i class="${data.icon}"></i>
-              </div>
-              
-          </div>
-                    
-  `;
-  });
-
-  document.querySelector('.js-cards').innerHTML = OverviewContentHTML;
 
   /* script for doctors section */
 

@@ -103,12 +103,10 @@ $username = $_SESSION['username'];
                 </li>
                 <li>
                 <form action="logout.php" method="post">
-                <a href="">
-                <button type="submit" value="Logout" class="sidebar--item" id="logout-button">
+                <button type="submit" value="Logout"  id="logout-button">
                         <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
-                        Logout
+                       <span class="sidebar--item">Logout</span>
                     </button>
-                    </a>
                 </form>
                 </li>
             </ul>
