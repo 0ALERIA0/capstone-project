@@ -38,15 +38,15 @@ include('header.php');
 
                     <label for="name">Patients Name:</label>
                     <div class="input-div">
-                    <input type="text" id="first-name" placeholder="first name">
-                    <input type="text" id="last-name" placeholder="last name">
-                    <input type="text" id="middle-name" placeholder="middle name"><br>
+                    <input type="text" id="first-name" placeholder="first name" class="input-design">
+                    <input type="text" id="last-name" placeholder="last name" class="input-design">
+                    <input type="text" id="middle-name" placeholder="middle name" class="input-design"><br>
                     </div>
 
                     
                     <label for="Gender">Gender:</label>
                     <div class="input-div">
-                    <select name="" id="gender">
+                    <select name="" id="gender" class="input-design">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
@@ -54,21 +54,21 @@ include('header.php');
 
                 <div class="input-div">
                     <label for="number">Phone Number:</label>
-                    <input type="number" id="input-number" placeholder="Phone Number"><br>
+                    <input type="number" id="input-number" placeholder="Phone Number" class="input-design"><br>
                 </div>
 
                     
                     <label for="date">Date of Birthday:</label>
                     <div class="input-div">
-                    <input type="date" id="input-birthday">
+                    <input type="date" id="input-birthday" class="input-design">
                     <label for="age">Age:</label>
-                    <input type="number" name="" id="age">
+                    <input type="number" name="" id="age" class="input-design">
                     </div>
 
                     
                     <label for="marital">Marital Status:</label>
                     <div class="input-div">
-                    <select name="" id="marital-status">
+                    <select name="" id="marital-status" class="input-design">
                         <option value="single">Single</option>
                         <option value="married">Married</option>
                         <option value="divorced">Divorced</option>
@@ -80,12 +80,12 @@ include('header.php');
                     
                         <label for="address">Patient Address:</label>
                         <div class="add-div">
-                        <input type="text" id="street-add" placeholder="Street Address">
-                        <input type="text" id="barangay" placeholder="Barangay">
-                        <input type="text" id="municipality" placeholder="Municipality"><br>
-                        <input type="text" id="city" placeholder="City">
-                        <input type="text" id="country" placeholder="Country">
-                        <input type="number" id="zip-code" placeholder="Zip Code">
+                        <input type="text" id="street-add" placeholder="Street Address" class="input-design">
+                        <input type="text" id="barangay" placeholder="Barangay" class="input-design">
+                        <input type="text" id="municipality" placeholder="Municipality" class="input-design"><br>
+                        <input type="text" id="city" placeholder="City" class="input-design">
+                        <input type="text" id="country" placeholder="Country" class="input-design">
+                        <input type="number" id="zip-code" placeholder="Zip Code" class="input-design">
                     </div>
 
                     <div class="modal-footer">
@@ -95,7 +95,7 @@ include('header.php');
                 </div>
             </div>
             <div class="patient-records-container">
-                <input type="search" name="" id="searchbar-record">
+                <input type="search" name="" id="searchbar-record" class="input-design">
                 <table class="records-container" id="patient-table">
                     <thead class="header-grid">
                     <tr>

@@ -1,10 +1,24 @@
 <?php
+include('config.php');
  session_start();
 // Check if user is not logged in
 if(!isset($_SESSION['username'])) {
     // If user is not logged in, redirect to login page
     header("Location: admin-login.php");
     exit(); // Stop further execution
+}
+
+$sql = "SELECT * FROM `my_employee`";
+
+$result = mysqli_query($conn, $sql);
+
+// Check if the query executed successfully
+if ($result) {
+    // Fetch data as an array
+    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+} else {
+    // Handle the error, if any
+    echo "Error: " . mysqli_error($conn);
 }
 
 // If user is logged in, retrieve the username
@@ -25,135 +39,76 @@ include('header.php');
 
 
 <!--Start main content-->
+
         <div class="main--content">
-            <div class="head-content">
+        <div class="toolbar">
+            <div class="toolbar-item">
+                <label for="filter-status">Status:</label>
+                <select id="filter-status">
+                    <option value="all">All</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+            <div class="toolbar-item">
+                <label for="filter-employee-type">Employee Type:</label>
                 <select id="filter-employee" class="filter-dropdown">
                     <option value="all">All</option>
                     <option value="doctor">Doctors</option>
                     <option value="nurse">Nurse</option>
                 </select>
             </div>
-            <div class="employee-list">
-                <div class="employee-grid">
-                    <div class="employee-card doctor">
-                        <div class="top-flex-card">
-                        <img src="images/picture-1.jpg" class="employee-pic">
-                            <div class="top-right-div">
-                                <p class="doctor-name">Dr. Emilia 
-                                Clark</p>
-                                <p class="occupation">Surgeon</p>
+
+            <div class="toolbar-item">
+                <p>Selected employees: <span id="counter">0</span></p>
+            </div>
+
+            <div class="toolbar-item">
+                <label for="search">Search:</label>
+                <input type="text" id="search" placeholder="Search...">
+            </div>
+        </div>
+            <div class="head-content">
+                
+            </div>
+            
+            <div class="organization-div">
+                <div class="organization-wrapper">
+                    <?php foreach ($data as $datas):?>
+
+                        <div class="card-wrapper doctor">
+                            <div class="card-top">
+                                <input type="checkbox" id="organization-selector">
+                                <!-- Check the status and apply appropriate CSS class -->
+                                <?php 
+                                    $statusClass = ($datas['STATUS'] === 'Active') ? 'active-status' : 'inactive-status'; 
+                                ?>
+                                <p class="<?php echo $statusClass; ?>"><?php echo htmlspecialchars($datas['STATUS']) ?></p>
+                                <i class="ri-menu-line organization-menu"></i>
                             </div>
+                        <div class="card-middle">
+                            <img src="images/picture-1.jpg" alt="doctor1">
+                            <p><?php echo htmlspecialchars($datas['first_name']); ?></p>
+                            <p><?php echo htmlspecialchars($datas['employee_type']); ?></p>
                         </div>
-                        <div>
-                            <p>Contact no: 7894613</p>
-                            <p>Email: doctor2@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="employee-card doctor">
-                        <div class="top-flex-card">
-                        <img src="images/picture-2.jpg" class="employee-pic">
-                            <div class="top-right-div">
-                                <p class="doctor-name">Dr. Dylan O'brien</p>
-                                <p class="occupation">Pediatrician</p>
+                        <div class="card-bottom">
+                            <p class="info">Date hired:</p>
+                            <p class="information"><?php echo htmlspecialchars($datas['date_hired']) ?></p>
+                            <div class="contact-bottom">
+                                <div class="email-div">
+                                    <p class="info">Email</p>
+                                    <p cclass="information">Heaven@gmail.com</p>
+                                </div>
+                                <div class="phone-div">
+                                    <p class="info">Phone number</p>
+                                    <p class="information">12345678909</p>
+                                </div>
+                                
                             </div>
-                        </div>
-                        <div>
-                            <p>Contact no: 7894613</p>
-                            <p>Email: doctor3@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="employee-card doctor">
-                        <div class="top-flex-card">
-                        <img src="images/picture-3.jpg" class="employee-pic">
-                            <div class="top-right-div">
-                                <p class="doctor-name">Dr. Jon Snow</p>
-                                <p class="occupation">Cardiologist</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Contact no: 7894613</p>
-                            <p>Email: doctor4@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="employee-card doctor">
-                        <div class="top-flex-card">
-                        <img src="images/picture-4.jpg" class="employee-pic">
-                            <div class="top-right-div">
-                                <p class="doctor-name">Dr. David Harbour</p>
-                                <p class="occupation">Oncologist</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Contact no: 7894613</p>
-                            <p>Email: doctor4@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="employee-card doctor">
-                        <div class="top-flex-card">
-                        <img src="images/picture-5.jpg" class="employee-pic">
-                            <div class="top-right-div">
-                                <p class="doctor-name">Dr. Tom Cruise</p>
-                                <p class="occupation">Optalmologist</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Contact no: 7894613</p>
-                            <p>Email: doctor5@gmail.com</p>
                         </div>
                     </div>
 
-                    <div class="employee-card nurse">
-                        <div class="top-flex-card">
-                        <img src="images/nurse1.jpg" class="employee-pic">
-                            <div class="top-right-div">
-                                <p class="doctor-name">Chloe Moretz</p>
-                                <p class="occupation">Nurse</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Contact no: 7894613</p>
-                            <p>Email: nurse1@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="employee-card nurse">
-                        <div class="top-flex-card">
-                        <img src="images/nurse2.jpg" class="employee-pic">
-                            <div class="top-right-div">
-                                <p class="doctor-name">Emma Watson</p>
-                                <p class="occupation">Nurse</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Contact no: 7894613</p>
-                            <p>Email: nurse2@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="employee-card nurse">
-                        <div class="top-flex-card">
-                        <img src="images/nurse3.jpg" class="employee-pic">
-                            <div class="top-right-div">
-                                <p class="doctor-name">Margot Robbie</p>
-                                <p class="occupation">Nurse</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Contact no: 7894613</p>
-                            <p>Email: nurse3@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="employee-card nurse">
-                        <div class="top-flex-card">
-                        <img src="images/nurse4.jpg" class="employee-pic">
-                            <div class="top-right-div">
-                                <p class="doctor-name">Jennifer Lawrence</p>
-                                <p class="occupation">Nurse</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Contact no: 7894613</p>
-                            <p>Email: nurse4@gmail.com</p>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                     
                 </div>
             </div>

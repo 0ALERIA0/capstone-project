@@ -81,8 +81,7 @@ h3 {
   height: auto;
 }
 
-input,
-select {
+.input-design {
   width: 100%;
   height: 40px;
   padding: 10px;
