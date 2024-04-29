@@ -1,10 +1,27 @@
 <?php
+include('config.php');
+
 session_start();
+
+
 // Check if user is not logged in
 if(!isset($_SESSION['username'])) {
     // If user is not logged in, redirect to login page
     header("Location: admin-login.php");
     exit(); // Stop further execution
+}
+
+$sql = "SELECT * FROM `inventory`";
+
+$result = mysqli_query($conn, $sql);
+
+// Check if the query executed successfully
+if ($result) {
+    // Fetch data as an array
+    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+} else {
+    // Handle the error, if any
+    echo "Error: " . mysqli_error($conn);
 }
 
 // If user is logged in, retrieve the username
@@ -58,7 +75,19 @@ $username = $_SESSION['username'];
                             </tr>
                         </thead>
                         <tbody class="inventory-content-items">
-                            
+                        <?php foreach($data as $datas): ?>
+                        <tr>
+                    <td><?php echo htmlspecialchars($datas['id']); ?></td>
+                    <td><?php echo htmlspecialchars($datas['item_name']); ?></td>
+                    <td><?php echo htmlspecialchars($datas['category']); ?></td>
+                    <td><?php echo htmlspecialchars($datas['quantity']); ?></td>
+                    <td>
+                    <button id="see-item">See details</button>
+                    <button id="edit-item">edit</button>
+                    <button class="delete-items" id="delete-item">delete</button>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
                         </tbody>
                     </table>
                     <div class="pagination-section">

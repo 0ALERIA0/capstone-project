@@ -149,17 +149,6 @@
     cursor: pointer;
 }
 
-#add-item,
-#minus-item{
-    width: 30px;
-    padding: 3px;
-    margin-left: 5px;
-    border-radius: 5px;
-    border: none;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
 #see-item:hover,
 #edit-item:hover,
 #delete-item:hover {
