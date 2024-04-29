@@ -43,7 +43,7 @@ $username = $_SESSION['username'];
                             <tr>
                                 <th>Id</th>
                                 <th>Item Name</th>
-                                <th>Category</th>
+                                <th>Quantity</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

@@ -88,7 +88,7 @@ $username = $_SESSION['username'];
                     <div class="card--data">
                         <div class="card--content">
                             <h5 class="card--title">Scheduled</h5>
-                            <h1><?php echo count($data); ?></h1>
+                            <h1>7</h1>
                         </div>
                     <i class="ri-calendar-2-line card--icon--lg"></i>
                     </div>

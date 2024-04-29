@@ -66,7 +66,7 @@ $username = $_SESSION['username'];
                 <li>
                     <a href="doctors.php">
                         <span class="icon icon-3"><i class="ri-user-2-line"></i></span>
-                        <span class="sidebar--item" style="white-space: nowrap;">Organization</span>
+                        <span class="sidebar--item" style="white-space: nowrap;">Employees</span>
                     </a>
                 </li>
                 <li>
