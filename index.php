@@ -14,8 +14,8 @@
         <div class="logo">Castelo <span style="color: #c5cef0;">Medical Clinic</span></div>
         <div class="nav-div">
             <a href="index.php" class="nav-btn">Home</a>
-            <a href="doctor-account/doctor-login.php" class="nav-btn">Login as Doctor</a>
-            <a href="admin-dashboard/admin-login.php" class="nav-btn">Login as Admin</a>
+            <a href="doctor-account/doctor-login.php" class="nav-btn">Login</a>
+            <a href="admin-dashboard/admin-login.php" class="nav-btn">Admin</a>
         </div>
     </div>
 
