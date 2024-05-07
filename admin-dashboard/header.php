@@ -76,18 +76,6 @@ $username = $_SESSION['username'];
                     </a>
                 </li>
                 <li>
-                    <a href="pharmacy.php">
-                        <span class="icon icon-10"><i class="ri-medicine-bottle-fill"></i></span>
-                        <span class="sidebar--item">Pharmacy</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="inventory.php">
-                        <span class="icon icon-11"><i class="ri-file-list-2-fill"></i></span>
-                        <span class="sidebar--item">Inventory</span>
-                    </a>
-                </li>
-                <li>
                     <a href="#">
                         <span class="icon icon-5"><i class="ri-line-chart-line"></i></span>
                         <span class="sidebar--item">Activity</span>

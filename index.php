@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Page Title -->
     <title>Castelo Medical Clinic</title>
-    <link rel="stylesheet" href="design.css">
+    <link rel="stylesheet" href="assets/css/design.css">
 </head>
 <body>
 <div class="header">
