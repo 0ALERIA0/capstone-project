@@ -1,8 +1,22 @@
 <?php
-
+include('config.php');
 
 // If user is logged in, retrieve the username
 $username = $_SESSION['username'];
+
+$sql = "SELECT image FROM users WHERE username = '$username'";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $imageData = $row['image'];
+        
+      } else {
+        echo 'No image uploaded yet.';
+      }
+
+    // Close database connection
+    $conn->close();
 ?>
 
 <head>
@@ -40,7 +54,7 @@ $username = $_SESSION['username'];
                 </div>
                 
                 <div class="picon profile">
-                    <img src="images/profile.jpg" alt="profile" class="admin-pic">
+                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($imageData) . '" alt="Uploaded Image" class="admin-pic";">'; ?>
                 </div>
 
                 <div class="account-name"><?php echo $username; ?></div>

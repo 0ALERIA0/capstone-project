@@ -36,6 +36,19 @@ foreach ($data as $row) {
     }
 }
 
+$doctors = "SELECT * FROM my_employee WHERE employee_type = 'Doctor'";
+
+$resultdoctor = mysqli_query($conn, $doctors);
+
+// Check if the query executed successfully
+if ($resultdoctor) {
+    // Fetch data as an array
+    $doctorData = mysqli_fetch_all($resultdoctor, MYSQLI_ASSOC);
+} else {
+    // Handle the error, if any
+    echo "Error: " . mysqli_error($conn);
+}
+
 // If user is logged in, retrieve the username
 $username = $_SESSION['username'];
 ?>
@@ -110,23 +123,28 @@ $username = $_SESSION['username'];
                 <div class="title">
                     <h3 class="section--title">Doctors</h3>
                     <div class="doctors--right--btns">
-                        <select name="date" id="date" class="dropdown doctor--filter">
+                        <select name="date" id="doctors-status" class="dropdown doctor--filter">
                             <option value="all">All</option>
-                            <option value="onduty">On Duty</option>
-                            <option value="dayoff">Day Off</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
                         </select>
                     </div>
                 </div>
+                
                 <div class="doctors--cards items">
-                <div class="doctor--card dayoff">
-        <div class="img--box--cover">
-            <div class="img--box">
-                <img src="images/picture-${doctor.image}.jpg" alt="">
-            </div>
-        </div>
-        <p>dayoff</p>
-        </div>
+                <?php foreach($doctorData as $datas): ?>
+                <div class="doctor--card <?php echo $datas['STATUS'] ?>"  data-status="<?php echo strtolower($datas['STATUS']); ?>">
+                <div class="img--box--cover">
+                    <div class="img--box">
+                    <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($datas['image']) . '" alt="Image";">'; ?>
+                    </div>
                 </div>
+                <p><?php echo $datas['first_name'] ?></p>
+                <p><?php echo $datas['STATUS'] ?></p>
+                </div>
+                <?php endforeach ?>
+                </div>
+                
             </div>
             <div class="lowerpart-div">
 
@@ -166,7 +184,7 @@ $username = $_SESSION['username'];
         </div>
     </section>
     <script src="javascript/main.js"></script>
-    <script src="javascript/index.js" type="module"></script>
+    <script src="javascript/index.js"></script>
 </body>
 
 </html>

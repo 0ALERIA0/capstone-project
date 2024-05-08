@@ -509,12 +509,16 @@ a {
     border-radius: 50%;
 }
 
-.onduty {
+#employee-name{
+    color: black;
+}
+
+.Active {
     color: green;
 }
 
-.offduty {
-    color: rgb(117, 48, 61);
+.Inactive {
+    color: rgb(71, 25, 33);
 }
 
 
