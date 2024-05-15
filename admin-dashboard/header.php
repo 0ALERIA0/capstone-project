@@ -4,6 +4,17 @@ include('config.php');
 // If user is logged in, retrieve the username
 $username = $_SESSION['username'];
 
+$name = "SELECT `Name` FROM `users` WHERE `username` = '$username'";
+    $nameresult = $conn->query($name);
+
+    if ($nameresult && $nameresult->num_rows > 0) {
+        $row = $nameresult->fetch_assoc();
+        $userName = $row['Name'];
+        
+      } else {
+        echo 'no name';
+      }
+
 $sql = "SELECT image FROM users WHERE username = '$username'";
     $result = $conn->query($sql);
 
@@ -57,7 +68,7 @@ $sql = "SELECT image FROM users WHERE username = '$username'";
                 <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($imageData) . '" alt="Uploaded Image" class="admin-pic";">'; ?>
                 </div>
 
-                <div class="account-name"><?php echo $username; ?></div>
+                <div class="account-name"><?php echo $userName; ?></div>
             </div>
         </div>
     </section>

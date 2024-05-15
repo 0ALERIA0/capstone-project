@@ -75,7 +75,6 @@ include('header.php');
             <div class="organization-div">
                 <div class="organization-wrapper">
                     <?php foreach ($data as $datas):?>
-
                         <div class="card-wrapper doctor">
                             <div class="card-top">
                                 <input type="checkbox" id="organization-selector">

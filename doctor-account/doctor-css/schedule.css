@@ -1,0 +1,208 @@
+/* Calendar styling */
+
+.top-wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+    max-height: 450px;
+  }
+  
+  #monthAndYear {
+    text-align: center;
+  }
+  
+  #next {
+    float: right;
+  }
+  
+  #next,
+  #previous {
+    height: 30px;
+    width: 40px;
+    background-color: rgb(104, 173, 104);
+    border: none;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+  }
+  
+  #next:hover,
+  #previous:hover {
+    transform: scale(1.2);
+  }
+  
+  .wrapper {
+    flex: 1;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .calendar-title {
+    text-align: center;
+    color: #379bbd;
+    margin-bottom: 10px;
+  }
+  
+  .calendar-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .table-calendar {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .table-calendar th,
+  .table-calendar td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    max-width: 50px;
+  }
+  
+  .today {
+    background-color: rgb(135, 223, 135);
+  }
+  
+  .table-calendar td:hover {
+    background-color: green;
+    color: white;
+  }
+  
+  #back-to-current-date,
+  .jump-button{
+    margin-top: 10px;
+    border: none;
+    padding: 5px;
+    padding-bottom: 5px;
+    border-radius: 3px;
+    background-color: rgb(104, 173, 104);
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  #back-to-current-date:hover,
+  .jump-button:hover{
+    background-color: green;
+    color: white;
+  }
+  
+  .select-date {
+    padding: 3px;
+    margin-right: 5px;
+  
+  }
+  
+  
+  /* Schedule list styling */
+  
+  .scheduled-list {
+    flex: 1;
+    max-width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    overflow: auto;
+    row-gap: 20px;
+  }
+  
+  .schedule-title {
+    text-align: center;
+    font-style: italic;
+    color: #379bbd;
+    margin-bottom: 20px;
+  }
+  
+  .schedule-cards-wrapper {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .schedule-cards {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .cards-link {
+    margin-bottom: 10px;
+  }
+  
+  .schedule-cards:hover {
+    background-color: lightgreen;
+  }
+  
+  .schedule-bullet {
+    flex: 1;
+  }
+  
+  .schedule-date {
+    font-size: 0.8em;
+  }
+  
+  /* Input form styling */
+
+  .bottom-wrapper {
+    display: flex;
+    column-gap: 20px;
+  }
+  
+  .input-form {
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+  }
+  
+  .input-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .input-form input,
+  .input-form select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .add-event-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #379bbd;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-event-button:hover {
+    background-color: #1e6a7b;
+  }
+  
+  .confirmed-list {
+    flex: 1;
+    max-width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    overflow: auto;
+    margin-top: 20px;
+  }

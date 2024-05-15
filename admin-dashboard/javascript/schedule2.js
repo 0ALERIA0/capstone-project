@@ -1,277 +1,54 @@
-// taking inputs
-let events = [];
+// Add an event listener to each date cell in the calendar
+document.addEventListener('DOMContentLoaded', function() {
+    const dateCells = document.querySelectorAll('.table-calendar tbody td');
+    dateCells.forEach(cell => {
+        cell.addEventListener('click', function () {
+            const date = this.dataset.date;
+            const month = this.dataset.month;
+            const year = this.dataset.year;
+            const specificDate = `${year}-${month}-${date}`; // Construct the specific date
+            // Pass the specific date to a function to display only the schedule requests for that date
+            displayScheduleRequests(specificDate);
+        });
+    });
+});
 
-let eventNameInput = document.getElementById("name-input");
-let eventStatusInput = document.getElementById("status-input");
-let eventDescriptionInput = document.getElementById("description-input");
-let eventDateInput = document.getElementById("date-input");
 
-
-// Function to generate a range of 
-// years for the year select input
-function generate_year_range(start, end) {
-	let years = "";
-	for (let year = start; year <= end; year++) {
-		years += "<option value='" +
-			year + "'>" + year + "</option>";
-	}
-	return years;
+// Function to display only the schedule requests for the selected date
+function displayScheduleRequests(specificDate) {
+    const scheduleCards = document.querySelectorAll('.schedule-cards');
+    scheduleCards.forEach(card => {
+        const cardDate = card.querySelector('.schedule-date').textContent;
+        if (cardDate.trim() === specificDate.trim()) {
+            card.style.display = 'block'; // Show schedule request if date matches
+        } else {
+            card.style.display = 'none'; // Hide schedule request if date does not match
+        }
+    });
 }
 
-// Initialize date-related letiables
-today = new Date();
-currentMonth = today.getMonth();
-currentYear = today.getFullYear();
-selectYear = document.getElementById("year");
-selectMonth = document.getElementById("month");
 
-createYear = generate_year_range(1970, 2050);
+const declineModal = document.getElementById('decline-modal');
+const declineButton = document.getElementById('decline-button-js');
+const closeModal = document.getElementsByClassName('close-modal')[0];
 
-document.getElementById("year").innerHTML = createYear;
-
-let calendar = document.getElementById("calendar");
-
-let months = [
-	"January",
-	"February",
-	"March",
-	"April",
-	"May",
-	"June",
-	"July",
-	"August",
-	"September",
-	"October",
-	"November",
-	"December"
-];
-let days = [
-	"Sun", "Mon", "Tue", "Wed",
-	"Thu", "Fri", "Sat"];
-
-$dataHead = "<tr>";
-for (dhead in days) {
-	$dataHead += "<th data-days='" +
-		days[dhead] + "'>" +
-		days[dhead] + "</th>";
-}
-$dataHead += "</tr>";
-
-document.getElementById("thead-month").innerHTML = $dataHead;
-
-monthAndYear =
-	document.getElementById("monthAndYear");
-showCalendar(currentMonth, currentYear);
-
-// Function to navigate to the next month
-function next() {
-	currentYear = currentMonth === 11 ?
-		currentYear + 1 : currentYear;
-	currentMonth = (currentMonth + 1) % 12;
-	showCalendar(currentMonth, currentYear);
+declineButton.onclick = function() {
+    declineModal.style.display = 'block';
 }
 
-// Function to navigate to the previous month
-function previous() {
-	currentYear = currentMonth === 0 ?
-		currentYear - 1 : currentYear;
-	currentMonth = currentMonth === 0 ?
-		11 : currentMonth - 1;
-	showCalendar(currentMonth, currentYear);
+closeModal.onclick = function() {
+    declineModal.style.display = 'none';
 }
 
-// Function to display the calendar
-function showCalendar(month, year) {
-	let firstDay = new Date(year, month, 1).getDay();
-	tbl = document.getElementById("calendar-body");
-	tbl.innerHTML = "";
-	monthAndYear.innerHTML = months[month] + " " + year;
-	selectYear.value = year;
-	selectMonth.value = month;
 
-	let date = 1;
-	for (let i = 0; i < 6; i++) {
-		let row = document.createElement("tr");
-		for (let j = 0; j < 7; j++) {
-			if (i === 0 && j < firstDay) {
-				cell = document.createElement("td");
-				cellText = document.createTextNode("");
-				cell.appendChild(cellText);
-				row.appendChild(cell);
-			} else if (date > daysInMonth(month, year)) {
-				break;
-			} else {
-				cell = document.createElement("td");
-				cell.setAttribute("data-date", date);
-				cell.setAttribute("data-month", month + 1);
-				cell.setAttribute("data-year", year);
-				cell.setAttribute("data-month_name", months[month]);
-				cell.className = "date-picker";
-				cell.innerHTML = "<span>" + date + "</span";
+const approveModal = document.getElementById('approve-modal');
+const approveButton = document.getElementById('approve-button-js');
+const closeApproveModal = document.getElementsByClassName('close-approve-modal')[0];
 
-				if (
-					date === today.getDate() &&
-					year === today.getFullYear() &&
-					month === today.getMonth()
-				) {
-					cell.className = "date-picker selected";
-				}
-
-				// Check if there are events on this date
-				if (hasEventOnDate(date, month, year)) {
-					cell.classList.add("event-marker");
-					cell.appendChild(
-						createEventTooltip(date, month, year)
-				);
-				}
-
-				row.appendChild(cell);
-				date++;
-			}
-		}
-		tbl.appendChild(row);
-	}
-}
-// Function to jump to a specific month and year
-function jump() {
-	currentYear = parseInt(selectYear.value);
-	currentMonth = parseInt(selectMonth.value);
-	showCalendar(currentMonth, currentYear);
-}
-// Function to get the number of days in a month
-function daysInMonth(iMonth, iYear) {
-	return 32 - new Date(iYear, iMonth, 32).getDate();
+approveButton.onclick = function() {
+    approveModal.style.display = 'block';
 }
 
-// Call the showCalendar function initially to display the calendar
-showCalendar(currentMonth, currentYear);
-
-// counter to generate event IDs
-let eventIdCounter = 1;
-let dayoff = [];
-let leave = [];
-let other =[];
-
-// function to add events
-function addEvent() {
-	let name = eventNameInput.value;
-	let status = eventStatusInput.value;
-	let description = eventDescriptionInput.value;
-	let date = eventDateInput.value;
-
-	if (name && status && description && date) {
-		//create a id event
-		let eventId = eventIdCounter;
-
-		events.push(
-			{
-				id: eventId,
-				name: name,
-				status: status,
-				description: description,
-				date: date
-			}
-		);
-
-		if(name && status && description && date) {
-			if (status === 'dayoff') {
-				dayoff.push({
-					status: status
-			})
-			} else if (status === 'leave') {
-				leave.push({
-					status: status
-				})
-			} else if (status === 'other') {
-				other.push({
-					status: status
-				})
-			}
-		}
-
-		showCalendar(currentMonth, currentYear);
-		eventNameInput.value = "";
-		eventDescriptionInput.value = "";
-		eventDateInput.value = "";
-		displaySchedule();
-		updateScheduleCOunter();
-	}
-
-	location.reload;
-}
-
-function hasEventOnDate(date, month, year) {
-	return getEventsOnDate(date, month, year).length > 0;
-}
-
-// function to display schedule
-function displaySchedule() {
-	scheduleListHTML = "";
-
-	events.forEach((data) => {
-		scheduleListHTML += `
-		<div class="schedule-cards">
-			<img src="images/profile.jpg" id="schedule-picture">
-			<p class="schedule-bullet">${data.name}</p>
-			<p class="schedule-date">${data.date}</p>
-		</div>
-		`;
-	})
-	document.querySelector('.schedule-cards-wrapper').innerHTML = scheduleListHTML;
-};
-
-// function for scheduleCounter
-function updateScheduleCOunter() {
-
-let scheduleCounterHTML = `
-<div class="dayoff-div">
-                <h4 class="schedule-counter">Day Off</h4>
-                <p>${dayoff.length}</p>
-            </div>
-            <div class="leave-div">
-                <h4 class="schedule-counter">Leave</h4>
-                <p>${leave.length}</p>
-            </div>
-			<div class="other-div">
-                <h4 class="schedule-counter">Other</h4>
-                <p>${other.length}</p>
-            </div>
-`;
-document.querySelector('.schedule-counter-wrapper').innerHTML = scheduleCounterHTML
-};
-
-/*--------------------------------------------*/
-// Function to create an event tooltip
-function createEventTooltip(date, month, year) {
-	let tooltip = document.createElement("div");
-	tooltip.className = "event-tooltip";
-	let eventsOnDate = getEventsOnDate(date, month, year);
-	for (let i = 0; i < eventsOnDate.length; i++) {
-		let event = eventsOnDate[i];
-		let eventDate = new Date(event.date);
-		let eventText = `<strong>${event.name}</strong> - 
-			${event.status} on 
-			${eventDate.toLocaleDateString()}`;
-		let eventElement = document.createElement("p");
-		eventElement.innerHTML = eventText;
-		tooltip.appendChild(eventElement);
-	}
-	return tooltip;
-}
-
-// Function to get events on a specific date
-function getEventsOnDate(date, month, year) {
-	return events.filter(function (event) {
-		let eventDate = new Date(event.date);
-		return (
-			eventDate.getDate() === date &&
-			eventDate.getMonth() === month &&
-			eventDate.getFullYear() === year
-		);
-	});
-}
-
-// Function to check if there are events on a specific date
-function hasEventOnDate(date, month, year) {
-	return getEventsOnDate(date, month, year).length > 0;
+closeApproveModal.onclick = function() {
+    approveModal.style.display = 'none';
 }

@@ -1,15 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include('config.php');
+
+// If user is logged in, retrieve the username
+$username = $_SESSION['username'];
+
+$name = "SELECT `first_name` FROM `my_employee` WHERE `username` = '$username'";
+    $nameresult = $conn->query($name);
+
+    if ($nameresult && $nameresult->num_rows > 0) {
+        $row = $nameresult->fetch_assoc();
+        $userName = $row['first_name'];
+        
+      } else {
+        echo 'no name';
+      }
+
+$sql = "SELECT image FROM my_employee WHERE username = '$username'";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $imageData = $row['image'];
+        
+      } else {
+        echo 'No image uploaded yet.';
+      }
+
+    // Close database connection
+    $conn->close();
+?>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="doctor-css/doctor-acc.css">
+    <link rel="stylesheet" href="doctor-css/styles.css">
     <link rel="stylesheet" href="doctor-css/dashboard.css">
+    <link rel="stylesheet" href="doctor-css/schedule.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <title>Dashboard-copy</title>
+    <title>Castelo Medical Clinic</title>
 </head>
 
 <body>
@@ -32,10 +62,10 @@
                 </div>
                 
                 <div class="picon profile">
-                    <img src="doctor-images/doctor.jpg" alt="profile" class="admin-pic">
+                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($imageData) . '" alt="Uploaded Image" class="admin-pic";">'; ?>
                 </div>
 
-                <div class="account-name">admin</div>
+                <div class="account-name"><?php echo $userName; ?></div>
             </div>
         </div>
     </section>
@@ -43,28 +73,22 @@
         <div class="sidebar">
             <ul class="sidebar--items">
                 <li>
-                    <a href="index.html" id="active--link">
+                    <a href="doctor-dashboard.php">
                         <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
                         <span class="sidebar--item">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="doctor-schedule.html">
+                    <a href="doctor-schedule.php">
                         <span class="icon icon-2"><i class="ri-calendar-2-line"></i></span>
                         <span class="sidebar--item">Schedule</span>
                     </a>
                 
                 </li>
                 <li>
-                    <a href="doctor-patients.html">
+                    <a href="doctor-patient.php">
                         <span class="icon icon-4"><i class="ri-user-line"></i></span>
                         <span class="sidebar--item">Patients</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon icon-6"><i class="ri-customer-service-line"></i></span>
-                        <span class="sidebar--item">Support</span>
                     </a>
                 </li>
             </ul>
@@ -76,51 +100,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                <form action="logout.php" method="post">
+                <button type="submit" value="Logout"  id="logout-button">
                         <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
-                        <span class="sidebar--item">Logout</span>
-                    </a>
+                       <span class="sidebar--item">Logout</span>
+                    </button>
+                </form>
                 </li>
             </ul>
         </div>
-        <div class="main--content">
-        <h3 id="dashboard-title">Welcome Doctor!</h3>
-        <div class="content">
-             <div class="graphs-div">
-                <div class="patient-graph">
-                    <p class="patient-activites-word">Patient Activities</p>
-                    <canvas id="myChart">
-                    </canvas>
-                </div>
-                <div class="patient-donutchart">
-                    <canvas id="myDonutChart"></canvas>
-                </div>
-            </div>
-            <div class="table">
-                <div class="title">
-                    <h3 class="section--title">Scheduled Patients To You:</h3>            
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Date Scheduled</th>
-                            <th>Gender</th>
-                            <th>Age</th>
-                            <th>Settings</th>
-                        </tr>
-                    </thead>
-                    <tbody class="js-tables-scheduled-patients">
-                        
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-    </div>
-    </section>
-    <script src="doctor-javascript/doctor-acc.js"></script>
-    <script type="module" src="doctor-javascript/dashboard.js"></script>
-</body>
-
-</html>

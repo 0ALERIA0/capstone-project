@@ -1,6 +1,3 @@
-/* General styling */
-
-
 /* Calendar styling */
 
 .top-wrapper {
@@ -26,6 +23,8 @@
   border: none;
   margin-bottom: 5px;
   border-radius: 5px;
+  font-size: 20px;
+  color: white;
 }
 
 #next:hover,
@@ -56,6 +55,7 @@
   width: 100%;
   border-collapse: collapse;
   border: 1px solid #ccc;
+  margin-bottom: 10px;
 }
 
 .table-calendar th,
@@ -63,52 +63,42 @@
   padding: 10px;
   text-align: center;
   border: 1px solid #ccc;
+  max-width: 50px;
 }
 
-.table-calendar th {
-  background-color: #f2f2f2;
+.today {
+  background-color: rgb(135, 223, 135);
 }
 
-.date-picker {
-  position: relative;
-  cursor: pointer;
-}
-
-.date-picker.selected {
-  background-color: #4fa368;
+.table-calendar td:hover {
+  background-color: green;
   color: white;
 }
 
-.date-picker:hover {
-  background-color: #ccc;
+#back-to-current-date,
+.jump-button{
+  margin-top: 10px;
+  border: none;
+  padding: 5px;
+  padding-bottom: 5px;
+  border-radius: 3px;
+  background-color: rgb(104, 173, 104);
+  cursor: pointer;
+  margin-right: 5px;
 }
 
-.event-marker::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
-  background-color: red;
-  border-radius: 50%;
+#back-to-current-date:hover,
+.jump-button:hover{
+  background-color: green;
+  color: white;
 }
 
-.event-tooltip {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #333;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  display: none;
+.select-date {
+  padding: 3px;
+  margin-right: 5px;
+
 }
 
-.event-marker:hover .event-tooltip {
-  display: block;
-}
 
 /* Schedule list styling */
 
@@ -139,13 +129,17 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
-.schedule-cards img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 10px;
+.cards-link {
+  margin-bottom: 10px;
+}
+
+.schedule-cards:hover {
+  background-color: lightgreen;
 }
 
 .schedule-bullet {
@@ -220,4 +214,161 @@
   font-size: 24px;
   margin: 0;
   color: #379bbd;
+}
+
+
+/* css for schedule request */
+
+.request-wrapper {
+  margin-top: 20px;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.request-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #4CAF50;
+}
+
+.employee-name {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.date-request,
+.status-request,
+.description-request,
+.employee-number {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #555;
+}
+
+
+
+.approve-request {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #17b61c;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.approve-request:hover {
+  background-color: #5cbb61;
+}
+
+.decline-request {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(190, 19, 19);
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.decline-request:hover {
+  background-color: rgb(250, 115, 115);
+}
+
+.decline-modal,
+.approve-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+animation-name: animatezoom;
+animation-duration: 0.2s;
+}
+
+.decline-modal-content,
+.approve-modal-content {
+  width: 30%;
+  margin: auto;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* subtle shadow effect */
+  animation: fadeIn 0.5s ease;
+}
+
+.close-container,
+.close-container-approve {
+  text-align: right;
+  margin-top: 0px;
+}
+
+.close-modal,
+.close-approve-modal {
+  font-size: 30px;
+  color: #555;
+  cursor: pointer;
+}
+
+.close-modal:hover,
+.close-approve-modal:hover {
+  color: red;
+
+}
+
+.confirmation {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.decline-request {
+  background-color: #FF5A5F; /* red color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.approve-request {
+  background-color: green; /* red color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.approve-request {
+  background-color: rgb(88, 221, 88);
+}
+
+.decline-request:hover {
+  background-color: #E33E41; /* slightly darker red on hover */
+}
+
+/* Animation */
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
 }
