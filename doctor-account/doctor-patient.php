@@ -7,7 +7,7 @@ session_start();
 // Check if user is not logged in
 if(!isset($_SESSION['username'])) {
     // If user is not logged in, redirect to login page
-    header("Location: admin-login.php");
+    header("Location: doctor-login.php");
     exit(); // Stop further execution
 }
 
@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
 
             // Execute query
     if(mysqli_query($conn, $sql)){
-        header('Location: patient.php');
+        header('Location: doctor-patient.php');
     } else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
     }
@@ -70,7 +70,7 @@ include('header.php');
             <div id="modal-wrapper">
         
                 <div class="modal-content">
-        <form action="patient.php" method="POST">
+        <form action="doctor-patient.php" method="POST">
                 <div class="modal-header">
                     <img src="images/hospital-logo.jpg" class="regform-logo">
                     <p class="close">&times;</p>
@@ -179,8 +179,8 @@ include('header.php');
 
         </div>  
     </section>
-    <script src="javascript/main.js"></script>
-    <script src="javascript/patient.js"></script>
+    <script src="doctor-javascript/doctor-acc.js"></script>
+    <script src="doctor-javascript/patient.js"></script>
 </body>
 
 </html>

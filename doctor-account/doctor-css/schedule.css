@@ -5,7 +5,7 @@
     gap: 20px;
     justify-content: space-between;
     margin-top: 20px;
-    max-height: 450px;
+    max-height: 500px;
   }
   
   #monthAndYear {
@@ -64,7 +64,7 @@
     padding: 10px;
     text-align: center;
     border: 1px solid #ccc;
-    max-width: 50px;
+    width: 70px;
   }
   
   .today {

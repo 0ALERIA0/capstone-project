@@ -1,6 +1,7 @@
 <?php
 include('config.php');
 
+
 // If user is logged in, retrieve the username
 $username = $_SESSION['username'];
 
@@ -12,7 +13,7 @@ $name = "SELECT `Name` FROM `users` WHERE `username` = '$username'";
         $userName = $row['Name'];
         
       } else {
-        echo 'no name';
+        header("Location: doctor-login.php");
       }
 
 $sql = "SELECT image FROM users WHERE username = '$username'";

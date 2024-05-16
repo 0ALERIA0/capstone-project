@@ -5,7 +5,7 @@ include('config.php');
 // Check if user is not logged in
 if(!isset($_SESSION['username'])) {
     // If user is not logged in, redirect to login page
-    header("Location: admin-login.php");
+    header("Location: doctor-login.php");
     exit(); // Stop further execution
 }
 

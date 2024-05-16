@@ -37,6 +37,7 @@ $sql = "SELECT image FROM my_employee WHERE username = '$username'";
     <link rel="stylesheet" href="doctor-css/styles.css">
     <link rel="stylesheet" href="doctor-css/dashboard.css">
     <link rel="stylesheet" href="doctor-css/schedule.css">
+    <link rel="stylesheet" href="doctor-css/patients.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title>Castelo Medical Clinic</title>
