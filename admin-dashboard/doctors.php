@@ -86,7 +86,7 @@ include('header.php');
                                 <i class="ri-menu-line organization-menu"></i>
                             </div>
                         <div class="card-middle">
-                            <img src="images/picture-1.jpg" alt="doctor1">
+                        <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($datas['image']) . '" alt="Image";">'; ?>
                             <p><?php echo htmlspecialchars($datas['first_name']); ?></p>
                             <p><?php echo htmlspecialchars($datas['employee_type']); ?></p>
                         </div>

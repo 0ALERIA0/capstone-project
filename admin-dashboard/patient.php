@@ -157,7 +157,7 @@ include('header.php');
                         <td class="name-record"><?php echo ucwords(htmlspecialchars($patientRecord['lastname'] . ' , ' . $patientRecord['firstname'] . ' ' . $patientRecord['middlename'])); ?></td>
                         <td class="sex-record"><?php echo ucwords(htmlspecialchars($patientRecord['gender'])) ?></td>
                         <td class="lastModified-record"><?php echo $patientRecord['last_modified'] ?></td>
-                        <td class="edit-delete"><button id="open-modal" class="ri-eye-fill modal-click"></button><button class="ri-edit-box-fill edit"></button><button class="ri-delete-bin-4-fill delete delete-patient-record"></button></td>
+                        <td class="edit-delete"><a href="patient-information.php"><button id="open-modal" class="ri-eye-fill modal-click"></button></a><button class="ri-edit-box-fill edit"></button><button class="ri-delete-bin-4-fill delete delete-patient-record"></button></td>
                     </tr>
                 <?php endforeach ?>
                     </tbody>
