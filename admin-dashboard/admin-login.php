@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/admin-login.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
     <title>Castelo Medical Clinic</title>
 </head>
 
@@ -17,15 +23,21 @@
             </div>
             <div class="form">
                 <form action="login.php" method="POST">
-                    <h2>Welcome admin</h2>
-                    <h3 class="sign-in-title">SIGN IN</h3>
-                    <label for="username">Username:</label>
-                    <input class="input" type="text" name="username" placeholder="Admin Username">
-                    <label for="password">Password:</label>
-                    <input  class="input" type="password" name="password" placeholder="Password">
+                    <h4>Welcome admin</h4>
+                    <h4>SIGN IN</h4>
+                    <div class="input-field">
+                        <i class="material-icons prefix">person</i>
+                        <input class="input" type="text" name="username">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-field">
+                        <i class="material-icons prefix">lock</i>
+                        <input  class="input" type="password" name="password">
+                        <label for="password">Password:</label>
+                    </div>
                     <p id="forgot-pass">forgot password?</p>
                     <div class="btn-container">
-                        <input type="submit" value="Login" id="submit-button">
+                        <input type="submit" value="Login" id="submit-button" class="btn waves-effect waves-light">
                     </div>
                 </form>
             <a href="../index.php"><p class="return">&laquo;Return to Home</p></a>

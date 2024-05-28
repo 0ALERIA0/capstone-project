@@ -362,33 +362,124 @@ h3 {
   margin-top: 20px;
 }
 
-.patient-info-wrapper {
-  background-color: rgb(180, 178, 178);
+.record-wrapper {
+  background-color: white;
   margin-top: 20px;
-  padding: 10px;
-  display: grid;
-  grid-template-columns: auto auto;
-  row-gap: 5px;
-  column-gap: 5px;
+  border: 1px solid black;
+  margin-bottom: 20px;
 }
 
+.hospital-title {
+  display: flex;
+  border-bottom: 1px solid black;
+}
 
-.first-grid,
-.second-grid {
-  padding: 10px;
-  background-color: white;
-  border: 1px solid rgb(141, 137, 137);
+.hospital-title img {
+  height: 100%;
+  
+}
+
+.hospital-name {
+  display: flex;
+  width: 80%;
+  padding: 5px;
+}
+
+.hospital {
+  font-size: 30px;
+}
+
+.hname {
+  text-align: center;
+  align-content: center;
+  width: 100%;
+  padding: 5px;
 }
 
 .identifier {
-  font-size: 13px;
-  color: #888;
+ color: grey;
+ font-size: 12px;
+ margin-bottom: 10px;
 }
 
-.medical-records {
-  background-color: rgb(180, 178, 178);
-  margin-top: 20px;
-  padding: 10px;
-  row-gap: 5px;
-  column-gap: 5px;
+.date-created {
+  width: auto;
+  padding: 5px;
+  border-left: 1px solid black;
+}
+
+.Title {
+  text-align: center;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+
+.second-panel {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.hospital-address {
+  width: 70%;
+  border-right: 1px solid black;
+  padding: 5px;
+}
+
+.last-modified {
+  width: 15%;
+  border-right: 1px solid black;
+  padding: 5px;
+}
+
+.case-number {
+  width: 15%;
+  padding: 5px;
+}
+
+.patient-information {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid black;
+  border-bottom: .5px solid black;
+}
+
+.first-name {
+  width: 25%;
+  padding: 5px;
+  border-right: 1px solid black;
+}
+
+.last-name,
+.middle-name,
+.sex {
+  width: 25%;
+  padding: 5px;
+  border-right: 1px solid black;
+}
+
+.birthdate,
+.age,
+.marital-status,
+.height,
+.weight {
+  width: 20%;
+  padding: 5px;
+  border-right: 1px solid black;
+}
+
+.diagnosis,
+.present-diagnosis,
+.past-diagnosis,
+.record-medicine {
+  width: 100%;
+  padding: 5px;
+  border-top: 1px solid black;
+  min-height: 30px;
 }

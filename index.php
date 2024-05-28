@@ -7,17 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Page Title -->
     <title>Castelo Medical Clinic</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="assets/css/design.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
-<div class="header">
-        <div class="logo">Castelo <span style="color: #c5cef0;">Medical Clinic</span></div>
-        <div class="nav-div">
-            <a href="index.php" class="nav-btn">Home</a>
-            <a href="employee-login.php" class="nav-btn">Login</a>
-            <a href="admin-dashboard/admin-login.php" class="nav-btn">Admin</a>
-        </div>
+<header >
+    <nav class="nav-wrapper transparent">
+    <div class="container">
+        <a href="#" class="brand-logo ">Castelo <span class="blue-text text-lighten-3">Medical Clinic</span></a>
+        <ul class="right">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="employee-login.php">Login</a></li>
+            <li><a href="admin-dashboard/admin-login.php">Admin</a></li>
+        </ul>
     </div>
+    </nav>
+</header>
 
     <div class="content">
         <div class="heart-div">
