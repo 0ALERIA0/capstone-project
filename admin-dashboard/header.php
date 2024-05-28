@@ -50,7 +50,7 @@ $sql = "SELECT image FROM users WHERE username = '$username'";
     <section class="header">
         <div class="logo">
             <i class="ri-menu-line icon icon-0 menu"></i>
-            <h2>Cast<span>ello</span></h2>
+            <h2>Cast<span>elo</span></h2>
         </div>
         <div class="search--notification--profile">
             <div class="search">

@@ -34,10 +34,9 @@ $sql = "SELECT image FROM my_employee WHERE username = '$username'";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="doctor-css/styles.css">
-    <link rel="stylesheet" href="doctor-css/dashboard.css">
-    <link rel="stylesheet" href="doctor-css/schedule.css">
-    <link rel="stylesheet" href="doctor-css/patients.css">
+    <link rel="stylesheet" href="css/patients.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title>Castelo Medical Clinic</title>
@@ -74,20 +73,7 @@ $sql = "SELECT image FROM my_employee WHERE username = '$username'";
         <div class="sidebar">
             <ul class="sidebar--items">
                 <li>
-                    <a href="doctor-dashboard.php">
-                        <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
-                        <span class="sidebar--item">Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="doctor-schedule.php">
-                        <span class="icon icon-2"><i class="ri-calendar-2-line"></i></span>
-                        <span class="sidebar--item">Schedule</span>
-                    </a>
-                
-                </li>
-                <li>
-                    <a href="doctor-patient.php">
+                    <a href="patient.php">
                         <span class="icon icon-4"><i class="ri-user-line"></i></span>
                         <span class="sidebar--item">Patients</span>
                     </a>

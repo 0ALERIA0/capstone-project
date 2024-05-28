@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="doctor-css/doctor-login.css">
+    <link rel="stylesheet" href="assets/css/doctor-login.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <title>Castelo Medical Clinic</title>
 </head>
@@ -13,7 +13,7 @@
     <div class="login-wrapper">
         <div class="login-content">
             <div class="login-logo">
-                <img src="doctor-images/hospital-logo.jpg" alt="castelo-logo" id="castelo-logo">
+                <img src="assets/hospital-logo.jpg" alt="castelo-logo" id="castelo-logo">
             </div>
             <div class="form">
                 <form action="login.php" method="POST">
@@ -28,7 +28,7 @@
                         <input type="submit" value="Login" id="submit-button">
                     </div>
                 </form>
-            <a href="../index.php"><p class="return">&laquo;Return to Home</p></a>
+            <a href="index.php"><p class="return">&laquo;Return to Home</p></a>
             </div>
         </div>
     </div>
